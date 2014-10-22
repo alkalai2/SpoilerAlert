@@ -1,6 +1,5 @@
 SpoilerAlert
 ============
-<h2> <b> SpoilerAlert </b> README </h2>
 
 <p> SpoilerAlert is a Chrome extension and web application that removes spoilers from a user's Twitter and Facebook.The application prompts users for Television shows they watch or Sports teams they follow, and posts related to their interests are blocked.
 </p>
