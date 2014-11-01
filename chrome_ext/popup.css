@@ -1,0 +1,15 @@
+body {
+        /*min-width: 357px;*/
+        background-color: #f2f2f2;
+        min-width: 400px;
+        min-height:150px;
+        overflow-x: hidden;
+      }
+
+      img {
+        margin: 5px;
+        border: 2px solid black;
+        vertical-align: middle;
+        width: 75px;
+        height: 75px;
+      }

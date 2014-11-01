@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+
+  "name": "Spoiler Alert",
+  "description": "Removes Spoilers from Facebook and Twitter streams.",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "test.png",
+    "default_popup": "popup.html"
+  }
+}
