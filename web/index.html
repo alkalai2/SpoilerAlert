@@ -6,8 +6,14 @@
 </title>
 
 <link rel="stylesheet" type="text/css" href="css/almost-flat-ui-master/stylesheets/app.css">
-<!--<link rel="stylesheet" type="text/css" href="css/foundation-5.4.6/css/foundation.css"> -->
-<link rel="stylesheet" type ="text/css" href="css/sa.css">
+<link rel="stylesheet" type="text/css" href="css/site.css">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<!-- jquery and jqueryautocomplete -->
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
+
+<!-- our js function. will hold packages and prepare them for autocomplete form -->
+<script type="text/javascript" src="js/packages.js"></script>
 
 </head>
 <body>
@@ -32,7 +38,8 @@
                 <li> <button class = "button radial info"> Sign Up </button></li>
                 <li> <pre>  </pre> <li>
               </ul>
-            </section></nav>
+            </section>
+          </nav>
   </div>
 <div class = "row" >
 
@@ -56,7 +63,7 @@
 			</h4>
 
 			<div class = "large-12 columns success">
-   				<input type = "text" placeholder = "Add more Shows, Teams, or Terms here.."> 
+   				<form><input type = "text" id = "autocomplete" placeholder = "Add more Shows, Teams, or Terms here.."> </form>
 	        </div>
 
 			<div class = "row">
