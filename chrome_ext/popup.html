@@ -1,7 +1,4 @@
 <!doctype html>
-<!-- more comments for neeraj -->
-<!-- fjweofiw  FOR NEERAJ COMMENTS  fwoifjweofijw -->
-<!-- Neeraj changed this file to test github commits -->
 <html>
   <head>
     <title>Getting Started Extension's Popup</title>
@@ -20,6 +17,19 @@
     <script type="text/javascript" src="../web/js/packages.js"></script>
     <script type="text/javascript" src="popup.js"></script>
     <script src="popup.js"></script>
+
+
+
+    <script type="text/javascript">
+      /**
+       * changes page to the main webpage that shows all of the statistics for spoiler alert
+       */
+      function goToSpoilerAlert(){
+        console.log('got here');
+        document.location.href = "http://www.google.com/";
+      }
+    </script>
+    
   </head>
   <body>
     <div class = "popup-content">
@@ -48,6 +58,10 @@
 
     <div class = "small-12 columns success">
           <form><input type = "text" id = "autocomplete" placeholder = "Add more Shows, Teams, or Terms here.."> </form>
+    </div>
+
+    <div class = "small-12 columns success">
+      <button class = "tiny radius info-dark" onClick="goToSpoilerAlert()"> See blocking statistics </button>
     </div>
 
   </body>
