@@ -9,5 +9,12 @@
     "default_icon": "test.png",
     "default_popup": "popup.html",
     "default_title": "Spoiler Alert!"
-  }
+  },
+
+  "content_scripts": [
+    {
+        "matches": ["http://*/*", "https://*/*"],
+        "js": ["facebook_blocker.js"]
+    }
+  ]
 }
