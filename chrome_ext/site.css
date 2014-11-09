@@ -1,0 +1,23 @@
+/*
+	Main Page for all CSS effects of the SpoilerAlert site. 
+*/
+
+.central-content{
+	
+	min-height: 100%;
+}
+.filler{
+	height: 10px;
+}
+.top-bar-section ul li > a.selected{
+	background-color: red;
+}
+
+
+/* 
+	Auto Complete
+*/
+.autocomplete-suggestions { border: 1px solid #f0f0f0; background: #fff; opacity: .97; cursor: default; overflow: auto; }
+.autocomplete-suggestion { padding: 10px 5px; font-size: .875em; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #f0f0f0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399ff; }

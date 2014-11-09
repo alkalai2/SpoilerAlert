@@ -3,7 +3,7 @@
 
   "name": "Spoiler Alert",
   "description": "Blocks potential tv show and sport spoilers from Facebook and Twitter streams.",
-  "version": "1.0",
+  "version": "1.1",
 
   "browser_action": {
     "default_icon": "test.png",

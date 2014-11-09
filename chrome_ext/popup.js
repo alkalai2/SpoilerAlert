@@ -3,6 +3,15 @@
 // found in the LICENSE file.
 
 /**
+ * changes page to the main webpage that shows all of the statistics for spoiler alert
+ */
+function goToSpoilerAlert(){
+  console.log('got here');
+  document.location.href = "http://www.google.com/";
+}
+
+
+/**
  * Global variable containing the query we'd like to pass to Flickr. In this
  * case, kittens!
  *
