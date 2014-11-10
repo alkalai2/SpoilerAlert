@@ -11,10 +11,23 @@
     "default_title": "Spoiler Alert!"
   },
 
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+
   "content_scripts": [
     {
         "matches": ["http://*/*", "https://*/*"],
         "js": ["facebook_blocker.js"]
     }
+  ],
+
+  "permissions": [
+    "background",
+    "tabs",
+    "activeTab",
+    "http://*/*",
+    "https://*/*"
   ]
 }

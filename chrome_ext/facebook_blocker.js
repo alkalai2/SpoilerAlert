@@ -7,3 +7,5 @@
  * 	- search for specified blocked posts
  *	- run javascript to block all of those specified elements
  */
+
+console.log('got inside of the facebook_blocker');
