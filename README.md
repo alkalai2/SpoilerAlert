@@ -1,6 +1,8 @@
 SpoilerAlert
 ============
-Chrome extension that blocks potential tv show and sport spoilers from Facebook and Twitter streams.
+Authors: Neeraj Asthana (neeasthana@gmail.com) and Jon Alkalai (idk@gmail.com)
+
+Spoiler Alert is a Google Chrome extension that blocks potential tv show and sport spoilers from Facebook and Twitter streams.
 
 
 Chrome APIs - https://developer.chrome.com/extensions/api_index
