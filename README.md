@@ -1,5 +1,7 @@
 SpoilerAlert
 ============
+Chrome extension that blocks potential tv show and sport spoilers from Facebook and Twitter streams.
+
 
 Chrome APIs - https://developer.chrome.com/extensions/api_index
 
