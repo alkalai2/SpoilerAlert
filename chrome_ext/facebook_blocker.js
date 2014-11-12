@@ -8,8 +8,47 @@
  *	- run javascript to block all of those specified elements
  */
 
+/**
+ * Goes into Chrome memory and retrieves all blocked words
+ * 
+ * @returns - an array of strings of all blocked words
+ */
+function getBlockedWords(){
+	return ['the'];
+}
+
+/**
+ * 
+ */
+function blockFacebookItem(item){
+	var paragraphs = item.getElementsByTagName('p');
+	console.log('number of paragraphs: ' + paragraphs.length);
+	for(var i = 0; i < paragraphs.length; i++){
+		paragraphs[i].style.backgroundColor='red';
+   		//paragraphs[i].style.text-shadow='0 0 5px rgba(0,0,0,0.5)';
+	}
+}
+
+/**
+ * Returns an array with the div elements for each individual newsfeed Story on Facebook
+ */
+ function getNewsfeedStories(){
+ 	//class code of newsfeed post '_5pcr' or '_3ccb' (does not include the commment)
+ 	//class codes for one level up - _4-u2 mbm _5jmm _5pat _5v3q _5x16 _2l4l _x72 (not sure if it includes the comment)
+  	var newsfeedStories = document.getElementsByClassName("_5jmm");
+  	return newsfeedStories;
+ }
+
+/**
+ * Controller function that will delegate to other functions
+ */
 function facebookBlocker(){
 	console.log('executing blocking');
+	var newsfeedStories = getNewsfeedStories();
+	for(var i = 0; newsfeedStories.length; i++){
+  		var currentStory = newsfeedStories[i];
+  		blockFacebookItem(currentStory);
+  	}
 }
 
 console.log('got inside of the facebook_blocker.js');
