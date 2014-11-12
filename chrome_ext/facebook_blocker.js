@@ -8,4 +8,10 @@
  *	- run javascript to block all of those specified elements
  */
 
-console.log('got inside of the facebook_blocker');
+function facebookBlocker(){
+	console.log('executing blocking');
+}
+
+console.log('got inside of the facebook_blocker.js');
+facebookBlocker();
+document.addEventListener("scroll", facebookBlocker);

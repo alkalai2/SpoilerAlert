@@ -14,21 +14,15 @@
   "background": {
     "scripts": ["background.js"],
     "persistent": false
-  },
-
-  "content_scripts": [
-    {
-        "matches": ["http://*/*", "https://*/*"],
-        "js": ["facebook_blocker.js"]
-    }
-  ], 
+  }, 
 
   "permissions": [
+
+    "http://*/*",
+    "https://*/*",
     "background",
     "storage",
     "tabs",
-    "activeTab",
-    "http://www.facebook.com/",
-    "https://www.facebook.com/"
+    "activeTab"
   ]
 }
