@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Spoiler Alert",
-  "description": "Blocks potential tv show and sport spoilers from Facebook and Twitter streams.",
+  "description": "Blocks potential tv show and sport spoilers from Facebook newsfeeds.",
   "version": "1.1",
 
   "browser_action": {
