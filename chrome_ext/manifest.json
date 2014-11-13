@@ -17,7 +17,6 @@
   }, 
 
   "permissions": [
-
     "http://*/*",
     "https://*/*",
     "background",

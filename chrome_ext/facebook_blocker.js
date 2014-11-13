@@ -25,7 +25,6 @@ function blockFacebookItem(item){
 	console.log('number of paragraphs: ' + paragraphs.length);
 	for(var i = 0; i < paragraphs.length; i++){
 		paragraphs[i].style.backgroundColor='red';
-   		//paragraphs[i].style.text-shadow='0 0 5px rgba(0,0,0,0.5)';
 	}
 }
 
@@ -47,6 +46,7 @@ function facebookBlocker(){
 	var newsfeedStories = getNewsfeedStories();
 	for(var i = 0; newsfeedStories.length; i++){
   		var currentStory = newsfeedStories[i];
+  		currentStory.style.backgroundColor="green";
   		blockFacebookItem(currentStory);
   	}
 }
