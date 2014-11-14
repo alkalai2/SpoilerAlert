@@ -32,6 +32,9 @@ function getBlockedWords(){
  */
 function blockFacebookItem(item){
 	//block out all of the shitty text
+	if(item.style.pointerEvents==='none')
+		return;
+
 	var paragraphs = item.getElementsByTagName('p');
 	for(var i = 0; i < paragraphs.length; i++){
 		paragraphs[i].style.color='transparent';
@@ -43,9 +46,9 @@ function blockFacebookItem(item){
 	//put filters on top of post while changing the opacity
 	var nodes = item.childNodes;
   	for(var i = 0; i < nodes.length; i++){
-  		nodes[i].style.opacity=.2;
+  		nodes[i].style.opacity=.1;
   	}
-  	item.style.backgroundColor='#158BE8';//actual background color: #e9eaed
+  	item.style.backgroundColor='#3B5998';//actual background color: #e9eaed
   	item.style.pointerEvents='none';
   	
   	var para = document.createElement("p");
@@ -95,7 +98,8 @@ function blockSpoilerPosts(posts){
 function facebookBlocker(){
 	console.log('executing blocking');
 	var newsfeedStories = getNewsfeedStories();
-	var blockedStories = blockSpoilerPosts(newsfeedStories);
+	blockSpoilerPosts(newsfeedStories);
+	blockFacebookItem(newsfeedStories[0]);
 }
 
 /**

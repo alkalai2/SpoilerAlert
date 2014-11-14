@@ -8,6 +8,7 @@
  * assures that the local storage is initialized (maybe on/off function)
  */
 chrome.runtime.onInstalled.addListener(function(details) {
+	localStorage.clear();
     localStorage['OnOff02021994SpoilerAlert'] = true;
     localStorage['AllTerms02021994SpoilerAlert'] = "|$|";
 });
@@ -26,7 +27,7 @@ chrome.tabs.onUpdated.addListener(function(id, info, tab){
     	console.log('On facebook.com');
 
     	//checks to make sure Spoiler Alert is set to on by the user
-    	if(localStorage["OnOff02021994SpoilerAlert"] == "true")
+    	if(localStorage["OnOff02021994SpoilerAlert"] === "true")
     		chrome.tabs.executeScript(null, {"file": "facebook_blocker.js"});
     	
     	return;
