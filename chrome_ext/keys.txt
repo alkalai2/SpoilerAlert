@@ -2,3 +2,7 @@ KEYS:
 
 AllTerms02021994SpoilerAlert - array separated by '|$|'
 OnOff02021994SpoilerAlert - true if it is on and operating and false otherwise
+
+Term[insert term]02021994SpoilerAlert - Whether show, sports (package), or individual term
+Stats[insert term]02021994SpoilerAlert - Whenever we add a key (how many times blocked)
+Person[insert person name] - people that we might want to take off facebook
