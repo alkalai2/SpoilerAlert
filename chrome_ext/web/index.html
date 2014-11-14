@@ -1,0 +1,237 @@
+<html>
+
+<head>
+<title>
+    Spoiler Alert - no more Spoilers!
+</title>
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="css/almost-flat-ui-master/stylesheets/app.css">
+ <link rel="stylesheet" href="css/jquery-ui-1.11.2.custom/jquery-ui.css">
+ <link rel="stylesheet" type="text/css" href="css/site.css">
+
+<!-- jquery and jqueryui -->
+<script src="js/jquery-1.9.1.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <!--<script type="text/javascript" src="js/jquery.autocomplete.min.js"></script> -->
+
+<!-- pie charts -->
+<script src="js/piechart/highcharts.js"></script>
+<script src="js/piechart/exporting.js"></script>
+
+<!-- my js files -->
+<script type="text/javascript" src="js/input-autocomplete.js"></script>
+<script type="text/javascript" src="js/piechart/piechart.js"></script>
+<script type="text/javascript" src="js/site.js"></script>
+
+
+</head>
+<body>
+<!--
+<div class = "container">    
+          <nav class="top-bar" data-topbar="">
+            <ul class="title-area">
+
+              <li class="name">
+                <h1><a href="#">Spoiler Alert!</a></h1>
+              </li>
+              
+              <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+            </ul>
+
+          <section class="top-bar-section">
+
+              <ul class="right">
+
+                <li ><a class= "selected" href="#">Profile </a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="about.html">About</a></li>
+                <li> <button class = "button radial info"> Sign Up </button></li>
+                <li> <pre>  </pre> <li>
+              </ul>
+            </section>
+          </nav>
+  </div> 
+
+  #3498db
+
+  #3D9FE0
+
+-->
+
+
+<nav role="navigation" id = "topNav" class="navigation">
+    <div class="navigation-container">
+      <ul class="logo-navigation">
+        <li>
+          <a href="index.html" id = "logo" title="Spoiler Alert">SpoilerAlert</a>
+        </li>
+      </ul>
+      <ul class="main-navigation">
+          <li><a href="#" class="active">Profile</a></li>
+          <li><a href="settings.html">Settings</a></li>
+          <li><a hred = "about.html"> About</li>
+          <li > <a id = "signin" href = "#"><strong> Sign Up </strong></a> </li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+<div class = "row" >
+
+ <div class = "large-12 columns">
+ <div class = "panel central-content">
+
+	
+	<div class = "row">
+		<!-- Welcome Content -->
+		<!-- making two small columns on either side to center welcome content because I dont want to figure out how to center columsn cus I'm fucking stupid -->
+		<div class = "large-1 columns"><pre>    </pre> </div>
+		<div class = "large-10 columns">
+				<h5> 
+					
+						<span  id = "welcome-subText" >Welcome to <span style = "color: black"> <b>SpoilerAlert</b> </span>.We remove the 'spoilers' related to your favorite <span style = "color: #5E15CF">Shows</span> and <span style = "color: #3498db">Sports Teams </span> from your Facebook feeds. Just tell us what you follow - we'll do the rest. </span></span>
+					
+				</h5>
+		</div>
+		<div class = "large-1 columns"> </div>
+	</div>
+
+	<div class = "row filler"><!-- filler row --></div>
+	<div class = "large-12 columns">
+		
+		<div class = "panel customizeInterests radius">
+			<h4 class = "subheader"> Your Interests 
+			</h4>
+
+			<div class = "large-12 columns success">
+   				<form id = "myform"><input id="autocomplete2" type="text" style = "box-shadow: 1px 1px 1px #bbbbbb"placeholder="Add more Shows, Teams, or terms here .."></form>
+	        </div>
+
+			<div class = "row">
+				<div class = "large-4 columns">
+				<form >
+	            <fieldset id = "showField">
+	              <legend >Shows</legend>
+	              <ul class = "package"id = "showBank">
+	          
+	              </ul>
+	            </fieldset>
+	          	</form>
+	         	 </div>
+
+	         	 <div class = "large-4 columns">
+				<form class="custom">
+	            <fieldset>
+	              <legend>Teams</legend>
+	              <ul class = "package" id = "teamBank">
+	              </ul>
+	            </fieldset>
+	          	</form>
+	         	 </div>
+
+	         	 <div class = "large-4 columns">
+				<form class="custom">
+	            <fieldset id = "termField">
+	              <legend>Indiv. Terms to Block</legend>
+	              <ul id = "termBank">
+
+	              </ul>
+	            </fieldset>
+	          	</form>
+	         	 </div>
+	         </div>
+   
+   		
+		</div>
+	</div>
+	
+	<div id = "outputcontent"> OUTPUT CONTENT
+
+	</div>
+	<h4 class = "subheader"> More Data </h4>
+	<div class = "row">
+		<div class = "large-5 columns"> 
+			<div class = "row">
+				<form class="custom">
+	            <fieldset>
+	              <legend>Who Spoils the most for you?</legend>
+	              <ol>
+	              	<li> <strong>James Rodriguez </strong>
+	              		<span style = "float: right">
+	              		
+	              			<button class = "tinytiny radius info-dark"> msg </button>
+	              			<button class = "tinytiny radius inverse"> unfollow</button>
+	              			<button class = "tinytiny radius alert-dark"> unfriend </button>
+	              		
+	              		</span>
+	              	</li>
+	              	<li style = "line-height: 20px"> <strong>Edward Wood </strong>
+	              		<span style = "float: right">
+	              		
+	              			<button class = "tinytiny radius info-dark"> msg </button>
+	              			<button class = "tinytiny radius inverse"> unfollow</button>
+	              			<button class = "tinytiny radius alert-dark"> unfriend </button>
+	              		
+	              		</span>
+	              	</li>
+	              	<li> <strong>Bradley Beal </strong>
+	              		<span style = "float: right; text-align: center">
+	              		
+	              			<button class = "tinytiny radius info-dark"> msg </button>
+	              			<button class = "tinytiny radius inverse"> unfollow</button>
+	              			<button class = "tinytiny radius alert-dark"> unfriend </button>
+	              		
+	              		</span>
+	              	</li>
+	              </ol>
+	            </fieldset>
+	          	</form>
+			</div>
+		</div>
+
+		<div class = "large-7 columns" style = "text-align:center">
+				
+				<div id="container" style="min-width: 400; height: 400; margin: 0 auto"></div>
+				<button class = "tinytiny radius info"  id="btnPieChartAll"> All</button>
+				<button class = "tinytiny radius highlight" id="btnPieChartShows"> Shows</button>
+				<button class = "tinytiny radius primary"  id="btnPieChartTeams"> Teams</button>
+				
+		</div>
+
+	</div>
+ 
+
+
+
+
+
+	<div class = "row">
+		
+
+	</div>
+
+
+
+
+
+
+
+
+ 
+ </div>
+</div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+</body>
+</html>
