@@ -28,13 +28,47 @@ function getBlockedWords(){
 }
 
 /**
+ *
+ */
+function unblockPost(item, div){
+	console.log("unblocking post!");
+
+	var paragraphs = item.getElementsByTagName('p');
+	for(var i = 0; i < paragraphs.length; i++){
+		paragraphs[i].style.color='#141823';
+		paragraphs[i].style.textShadow='initial';
+	}
+
+	//block shitty images and videos
+
+	//put filters on top of post while changing the opacity
+	var nodes = item.childNodes;
+  	for(var i = 0; i < nodes.length; i++){
+  		nodes[i].style.opacity=1;
+  	}
+  	item.style.backgroundColor='#fff';//'#3B5998';//actual background color: #e9eaed
+  	item.style.pointerEvents='auto';
+
+  	//changing the div
+  	div.style.zIndex=-10;
+  	div.style.visibility='hidden';
+}
+
+/**
  * 
  */
 function blockFacebookItem(item, term){
-	//block out all of the shitty text
-	if(item.style.pointerEvents==='none')
+
+	if(!item)
 		return;
 
+	var nodes = item.childNodes;
+
+	var unblocked = nodes[0].getAttribute('id');
+	if(item.style.pointerEvents==='none' || unblocked === 'SpoilerAlertBlockingDiv')
+		return;
+
+	//block out all of the shitty text
 	var paragraphs = item.getElementsByTagName('p');
 	for(var i = 0; i < paragraphs.length; i++){
 		paragraphs[i].style.color='transparent';
@@ -44,7 +78,6 @@ function blockFacebookItem(item, term){
 	//block shitty images and videos
 
 	//put filters on top of post while changing the opacity
-	var nodes = item.childNodes;
   	for(var i = 0; i < nodes.length; i++){
   		nodes[i].style.opacity=.1;
   	}
@@ -52,25 +85,35 @@ function blockFacebookItem(item, term){
   	item.style.pointerEvents='none';
   	
   	var div = document.createElement("div");
+  	div.onclick=function(){
+  		console.log("inside listner...");
+  		unblockPost(item, div);
+  	};
   	div.style.backgroundColor='#3498db';
   	div.style.opacity=.9;
   	div.setAttribute("id", "SpoilerAlertBlockingDiv");
-  	div.innerHTML = '<p style="font-size: 40px; color: #FFD42A;">Careful...</p>'
-  		+ '<p style="font-size: 30px;">Post contained a Possible Spoiler</p>'
-  		+ '<p style="font-size: 30px; color: #5E15CF;">'+ term + '</p>';
-  	div.style.width=item.offsetWidth;
-  	div.style.height=item.offsetHeight;
+  	div.innerHTML = '<p style="font-size: 20px; color: #FFD42A;">SPOILER ALERT</p>'
+  		+ '<p style="font-size: 13px;">Post contained a Possible Spoiler</p>'
+  		+ '<p style="font-size: 13px; color: #5E15CF;">'+ term + '</p>';
 
-  	div.style.marginLeft="50px";
-  	div.style.marginRight="50px";
+  	div.whiteSpace="nowrap";
+  	div.style.minWidth=(item.offsetWidth - 50).toString() + 'px';
+  	div.style.minHeight=(item.offsetHeight - 30).toString() + 'px';
+  	div.style.maxWidth=(item.offsetWidth - 50).toString() + 'px';
+  	div.style.maxHeight=(item.offsetHeight - 30).toString() + 'px';
+
+  	div.style.marginLeft="25px";
+  	div.style.marginRight="25px";
+  	div.style.marginTop="15px";
+  	div.style.marginBottom="15px";
 
   	div.style.textAlign="center";
-	//item.style.postion="absolute";
 	div.style.position="absolute";
 	div.style.top="0px";
 	div.style.left="0px";
 	div.style.zIndex=10;
 	item.insertBefore(div, nodes[0]);
+	div.style.pointerEvents='auto';
 }
 
 /**
@@ -94,7 +137,7 @@ function blockSpoilerPosts(posts){
 	for(var i = 0; i < posts.length; i++){
 		var toBlock = shouldBlock(posts[i]);
 		if(toBlock){
-			blockFacebookItem(posts[i]);
+			blockFacebookItem(posts[i], toBlock);
 		}
 	}
 }
@@ -116,6 +159,8 @@ function facebookBlocker(){
 	console.log('executing blocking');
 	var newsfeedStories = getNewsfeedStories();
 	blockSpoilerPosts(newsfeedStories);
+	blockFacebookItem(newsfeedStories[0]);
+	blockFacebookItem(newsfeedStories[1]);
 }
 
 /**
