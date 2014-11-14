@@ -89,10 +89,14 @@ function blockFacebookItem(item, term){
   		console.log("inside listner...");
   		unblockPost(item, div);
   	};
+
+  	var imgurl = chrome.extension.getURL("SpoilerAlert.png");
+
   	div.style.backgroundColor='#3498db';
   	div.style.opacity=.9;
   	div.setAttribute("id", "SpoilerAlertBlockingDiv");
   	div.innerHTML = '<p style="font-size: 20px; color: #FFD42A;">SPOILER ALERT</p>'
+  		+ '<img src="' + imgurl +'" alt="logo" style="margin-left: auto; margin-right: auto">'
   		+ '<p style="font-size: 13px;">Post contained a Possible Spoiler</p>'
   		+ '<p style="font-size: 13px; color: #5E15CF;">'+ term + '</p>';
 
@@ -160,8 +164,6 @@ function facebookBlocker(){
 	console.log('executing blocking');
 	var newsfeedStories = getNewsfeedStories();
 	blockSpoilerPosts(newsfeedStories);
-	blockFacebookItem(newsfeedStories[0]);
-	blockFacebookItem(newsfeedStories[1]);
 }
 
 /**

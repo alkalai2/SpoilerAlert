@@ -5,8 +5,14 @@
   "description": "Blocks potential tv show and sport spoilers from Facebook newsfeeds.",
   "version": "1.1",
 
+  "icons": {
+    "128": "SpoilerAlert.png"
+  },
+
+  "web_accessible_resources":["SpoilerAlert.png"],
+
   "browser_action": {
-    "default_icon": "test.png",
+    "default_icon": "SpoilerAlert.png",
     "default_popup": "popup.html",
     "default_title": "Spoiler Alert!"
   },
