@@ -1,0 +1,4 @@
+KEYS:
+
+AllTerms02021994SpoilerAlert - array separated by '|$|'
+OnOff02021994SpoilerAlert - true if it is on and operating and false otherwise
