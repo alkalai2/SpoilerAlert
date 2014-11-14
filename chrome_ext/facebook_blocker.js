@@ -8,17 +8,23 @@
  *	- run javascript to block all of those specified elements
  */
 
+var AllTermsString = '|$|';
+
 /**
  * Goes into Chrome memory and retrieves all blocked words
  * 
  * @returns - an array of strings of all blocked words
  */
 function getBlockedWords(){
-	var termsString = localStorage['AllTerms02021994SpoilerAlert'];
-	result = ["CELTICS"];
+	//Gets data from local storage
+	chrome.extension.sendMessage({storage: 'AllTerms02021994SpoilerAlert'}, function(response) {
+		AllTermsString = response.storage;
+	});
+
+	var termsString = AllTermsString;
 	var splitArray = termsString.split('|$|');
-	console.log(splitArray);
-	return result;
+	console.log('Terms to block: ' + splitArray);
+	return splitArray;
 }
 
 /**
@@ -40,6 +46,7 @@ function blockFacebookItem(item){
   		nodes[i].style.opacity=.2;
   	}
   	item.style.backgroundColor='#158BE8';//actual background color: #e9eaed
+  	item.style.pointerEvents='none';
   	
   	var para = document.createElement("p");
 	var node = document.createTextNode("Possible Spoiler");
@@ -53,7 +60,7 @@ function blockFacebookItem(item){
  */
 function shouldBlock(post){
 	var blockedWords = getBlockedWords();
-	for(var i = 0; i < blockedWords.length; i++){
+	for(var i = 1; i < blockedWords.length-1; i++){
 		if(post.innerHTML.toUpperCase().indexOf(blockedWords[i]) != -1){
 			return true;
 		}
@@ -91,6 +98,19 @@ function facebookBlocker(){
 	var blockedStories = blockSpoilerPosts(newsfeedStories);
 }
 
+/**
+ * Called when Facebook is first loaded
+ */
+function initFacebookBlocker(){
+	//Gets data from local storage
+	chrome.extension.sendMessage({storage: 'AllTerms02021994SpoilerAlert'}, function(response) {
+		console.log('response => ' + response.storage);
+		AllTermsString = response.storage;
+	});
+	setTimeout(facebookBlocker, 500);
+	facebookBlocker();
+}
+
 console.log('got inside of the facebook_blocker.js');
-facebookBlocker();
+initFacebookBlocker();
 document.addEventListener("scroll", facebookBlocker);

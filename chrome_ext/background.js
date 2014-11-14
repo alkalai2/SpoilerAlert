@@ -32,3 +32,16 @@ chrome.tabs.onUpdated.addListener(function(id, info, tab){
     	return;
     }
 });
+
+//access localStorage from facebook_blocker.js
+// Background Page
+chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
+  if (request.storage) {
+    if (typeof request.value != 'undefined') {
+      localStorage[request.storage] = request.value;
+    }
+    sendResponse({storage: localStorage[request.storage]});
+  } else {
+    sendResponse({});
+  }
+});
