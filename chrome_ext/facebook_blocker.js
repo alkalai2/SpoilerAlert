@@ -81,7 +81,7 @@ function blockFacebookItem(item, term){
   	for(var i = 0; i < nodes.length; i++){
   		nodes[i].style.opacity=.1;
   	}
-  	item.style.backgroundColor='#3B5998';//actual background color: #e9eaed
+  	item.style.backgroundColor='#E1E1DA';//'#3B5998';//actual background color: #e9eaed
   	item.style.pointerEvents='none';
   	
   	var div = document.createElement("div");
@@ -98,7 +98,6 @@ function blockFacebookItem(item, term){
 
   	div.whiteSpace="nowrap";
   	div.style.minWidth=(item.offsetWidth - 50).toString() + 'px';
-  	div.style.minHeight=(item.offsetHeight - 30).toString() + 'px';
   	div.style.maxWidth=(item.offsetWidth - 50).toString() + 'px';
   	div.style.maxHeight=(item.offsetHeight - 30).toString() + 'px';
 
@@ -106,6 +105,8 @@ function blockFacebookItem(item, term){
   	div.style.marginRight="25px";
   	div.style.marginTop="15px";
   	div.style.marginBottom="15px";
+  	div.style.borderRadius="4px";
+  	div.style.boxShadow="1px 1px 1px #999999";
 
   	div.style.textAlign="center";
 	div.style.position="absolute";
