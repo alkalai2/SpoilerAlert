@@ -30,7 +30,7 @@ function getBlockedWords(){
 /**
  * 
  */
-function blockFacebookItem(item){
+function blockFacebookItem(item, term){
 	//block out all of the shitty text
 	if(item.style.pointerEvents==='none')
 		return;
@@ -51,13 +51,26 @@ function blockFacebookItem(item){
   	item.style.backgroundColor='#3B5998';//actual background color: #e9eaed
   	item.style.pointerEvents='none';
   	
-  	var para = document.createElement("p");
-	var node = document.createTextNode("Possible Spoiler");
-	para.appendChild(node);
-	para.style.zIndex=10;
-	para.style.postion="absolute";
-	para.style.top="1500px";
-	item.appendChild(para);
+  	var div = document.createElement("div");
+  	div.style.backgroundColor='#3498db';
+  	div.style.opacity=.9;
+  	div.setAttribute("id", "SpoilerAlertBlockingDiv");
+  	div.innerHTML = '<p style="font-size: 40px; color: #FFD42A;">Careful...</p>'
+  		+ '<p style="font-size: 30px;">Post contained a Possible Spoiler</p>'
+  		+ '<p style="font-size: 30px; color: #5E15CF;">'+ term + '</p>';
+  	div.style.width=item.offsetWidth;
+  	div.style.height=item.offsetHeight;
+
+  	div.style.marginLeft="50px";
+  	div.style.marginRight="50px";
+
+  	div.style.textAlign="center";
+	//item.style.postion="absolute";
+	div.style.position="absolute";
+	div.style.top="0px";
+	div.style.left="0px";
+	div.style.zIndex=10;
+	item.insertBefore(div, nodes[0]);
 }
 
 /**
@@ -67,11 +80,11 @@ function blockFacebookItem(item){
 function shouldBlock(post){
 	var blockedWords = getBlockedWords();
 	for(var i = 1; i < blockedWords.length-1; i++){
-		if(post.innerHTML.toUpperCase().indexOf(blockedWords[i]) != -1){
-			return true;
+		if(post.innerHTML.toUpperCase().indexOf(blockedWords[i].toUpperCase()) != -1){
+			return blockedWords[i];
 		}
 	}
-	return false;
+	return undefined;
 }
 
 /**
@@ -79,7 +92,8 @@ function shouldBlock(post){
  */
 function blockSpoilerPosts(posts){
 	for(var i = 0; i < posts.length; i++){
-		if(shouldBlock(posts[i])){
+		var toBlock = shouldBlock(posts[i]);
+		if(toBlock){
 			blockFacebookItem(posts[i]);
 		}
 	}
@@ -102,7 +116,7 @@ function facebookBlocker(){
 	console.log('executing blocking');
 	var newsfeedStories = getNewsfeedStories();
 	blockSpoilerPosts(newsfeedStories);
-	blockFacebookItem(newsfeedStories[0]);
+	blockFacebookItem(newsfeedStories[0], "kobe");
 }
 
 /**
