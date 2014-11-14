@@ -54,6 +54,9 @@ function blockFacebookItem(item){
   	var para = document.createElement("p");
 	var node = document.createTextNode("Possible Spoiler");
 	para.appendChild(node);
+	para.style.zIndex=10;
+	para.style.postion="absolute";
+	para.style.top="1500px";
 	item.appendChild(para);
 }
 
