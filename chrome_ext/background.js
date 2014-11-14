@@ -6,10 +6,11 @@
 /**
  * run when the extension is first installed
  * assures that the local storage is initialized (maybe on/off function)
- *
+ */
 chrome.runtime.onInstalled.addListener(function(details) {
-    localStorage["spoiler_alert"] = true;
-});*/
+    localStorage['OnOff02021994SpoilerAlert'] = true;
+    localStorage['AllTerms02021994SpoilerAlert'] = "|$|";
+});
 
 chrome.tabs.onUpdated.addListener(function(id, info, tab){
 	console.log('URL: ' + tab.url);
@@ -24,7 +25,10 @@ chrome.tabs.onUpdated.addListener(function(id, info, tab){
     if(tab.url.toLowerCase().indexOf('facebook.com') >= 0){
     	console.log('On facebook.com');
 
-    	chrome.tabs.executeScript(null, {"file": "facebook_blocker.js"});
+    	//checks to make sure Spoiler Alert is set to on by the user
+    	if(localStorage["OnOff02021994SpoilerAlert"] == "true")
+    		chrome.tabs.executeScript(null, {"file": "facebook_blocker.js"});
+    	
     	return;
     }
 });

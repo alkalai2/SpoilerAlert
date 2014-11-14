@@ -9,19 +9,16 @@
  */
 
 /**
- * 
- */
-function storeWord(arrayOfWords){
-	//store it
-}
-
-/**
  * Goes into Chrome memory and retrieves all blocked words
  * 
  * @returns - an array of strings of all blocked words
  */
 function getBlockedWords(){
-	return ['CELTICS'];
+	var termsString = localStorage['AllTerms02021994SpoilerAlert'];
+	result = ["CELTICS"];
+	var splitArray = termsString.split('|$|');
+	console.log(splitArray);
+	return result;
 }
 
 /**
