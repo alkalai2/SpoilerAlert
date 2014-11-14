@@ -5,56 +5,45 @@
       
     <link rel="stylesheet" type="text/css" href="almost-flat-ui.css">
     <link rel="stylesheet" type="text/css" href="site.css">
+     <link rel="stylesheet" href="web/css/jquery-ui-1.11.2.custom/jquery-ui.css">
     <!-- css specific to chrome popup -->
     <link rel="stylesheet" type="text/css" href="popup.css">
 
 
     <!-- jquery and jqueryautocomplete -->
     <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
+      <script src="web/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="web/js/site.js"></script>
 
     <!-- will hold packages and prepare them for autocomplete form -->
-    <script type="text/javascript" src="js/packages.js"></script>
-    <script type="text/javascript" src="popup.js"></script>
-    <script src="popup.js"></script>
+    <!--<script type="text/javascript" src="popup.js"></script> -->
     
   </head>
   <body>
-    <div class = "popup-content">
-    <nav class="top-bar" data-topbar="">
-            <ul class="title-area">
-              <!-- Title Area -->
-              <li class="name">
-                <h1><a href="#">Spoiler Alert!</a></h1>
-              </li>
-              <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-              <li class="toggle-topbar menu-icon"><a href="#"></a>
+  <div class = "row">
 
-              </li>
-            </ul>
-    </nav>
-      <div>
-          <ul> <u>Your Terms: </u>
-            <li> Game of Thrones </li>
-            <li> Boston Celtics </li>
-            <li> Rugrats </li>
-            <li> New Orleans Pelicans </li>
+          <ul class="breadcrumbs">
+            <li id = "logo"> <a href="#">SpoilerAlert! </a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li class="unavailable"><a href="#">Gene Splicing</a></li>
           </ul>
+
+  </div>
+
+      <div class = "large-10 columns">
+
+              What you're following:
+
       </div>
 
-    </div>
 
-    <div class = "small-12 columns success">
-          <form><input type = "text" id = "autocomplete" placeholder = "Add more Shows, Teams, or Terms here.."> </form>
-    </div>
-
-    <div class = "small-12 columns success">
-      <button class = "tiny radius info-dark" onClick="goToSpoilerAlert()"> See blocking statistics</button>
-    </div>
+  <div class = "row">
+      <div class = "large-12 columns success" style = "position:absolute; bottom:0;">
+          <form id = "myform"><input id="autocomplete2" type="text" style = "box-shadow: 1px 1px 1px #bbbbbb"placeholder="Add more Shows, Teams, or terms here .."></form>
+          </div>
+  </div>
 
   </body>
-
-  <footer>
-        </footer>
 </html>
 

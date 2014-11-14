@@ -1,19 +1,30 @@
 body {
         /*min-width: 357px;*/
-        background-color: #f2f2f2;
+        background-color: #d9d9d1;
         min-width: 400px;
-        min-height:150px;
+        min-height:200px;
+        max-height: 400px;
         overflow-x: hidden;
       }
 
-      img {
-        margin: 5px;
-        border: 2px solid black;
-        vertical-align: middle;
-        width: 75px;
-        height: 75px;
-      }
+img {
+  margin: 5px;
+  border: 2px solid black;
+  vertical-align: middle;
+  width: 75px;
+  height: 75px;
+}
+.logo{
+  color: #FFD42A;
+}
+.breadcrumbs{
+  background-color: #444;
+  border: 1px solid #f3f3f3;
+  margin-bottom: 0px;
 
-.top-bar{
-    
+}
+element.style {
+}
+.breadcrumbs > *:before{
+  color: #FFD42A;
 }

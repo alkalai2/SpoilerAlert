@@ -60,6 +60,13 @@ ul.package{
 li.package{
 	 text-shadow: 0.3px 0.3px #020202;
 }
+ul.bankList{
+	max-height: 4em;
+	margin-left: 0;
+	margin-bottom: 0;
+	margin-top: 0;
+	margin-right: 0;
+}
 .filler{
 	height: 10px;
 }
