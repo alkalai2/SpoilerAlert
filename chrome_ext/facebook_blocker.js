@@ -116,7 +116,6 @@ function facebookBlocker(){
 	console.log('executing blocking');
 	var newsfeedStories = getNewsfeedStories();
 	blockSpoilerPosts(newsfeedStories);
-	blockFacebookItem(newsfeedStories[0], "kobe");
 }
 
 /**
