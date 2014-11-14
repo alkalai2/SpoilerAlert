@@ -4,7 +4,7 @@
     <title>Getting Started Extension's Popup</title>
       
     <link rel="stylesheet" type="text/css" href="almost-flat-ui.css">
-    <link rel="stylesheet" type="text/css" href="site.css">
+    <link rel="stylesheet" type="text/css" href="web/cssite.css">
      <link rel="stylesheet" href="web/css/jquery-ui-1.11.2.custom/jquery-ui.css">
     <!-- css specific to chrome popup -->
     <link rel="stylesheet" type="text/css" href="popup.css">
@@ -15,6 +15,9 @@
       <script src="web/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="web/js/site.js"></script>
 
+    <script type="text/javascript" src="popup.js"></script>
+
+
     <!-- will hold packages and prepare them for autocomplete form -->
     <!--<script type="text/javascript" src="popup.js"></script> -->
     
@@ -23,25 +26,42 @@
   <div class = "row">
 
           <ul class="breadcrumbs">
-            <li id = "logo"> <a href="#">SpoilerAlert! </a></li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Features</a></li>
-            <li class="unavailable"><a href="#">Gene Splicing</a></li>
+            <li id = "logo"> <a id = "alogo"href="#">SpoilerAlert </a></li>
+            <li class="unavailable"><a href="#">no more spoilers</a></li>
           </ul>
 
   </div>
 
-      <div class = "large-10 columns">
-
-              What you're following:
-
-      </div>
-
 
   <div class = "row">
-      <div class = "large-12 columns success" style = "position:absolute; bottom:0;">
+      <div class = "large-12 columns success" style = "margin-top: 7px;">
           <form id = "myform"><input id="autocomplete2" type="text" style = "box-shadow: 1px 1px 1px #bbbbbb"placeholder="Add more Shows, Teams, or terms here .."></form>
           </div>
+  </div>
+
+  <div class = "row" align = "centered">
+      <div class = "small-12 columns" style = "">
+          <span style = "color: grey"> Your interests: </span>
+          <div class = "row">
+              <div class = "small-4 columns" style = "">
+                  <ul class = "ext_list bankList" id = "showBank">
+
+                  </ul>
+
+              </div>
+              <div class = "small-4 columns" style = ""> 
+                  <ul class = "ext_list bankList" id = "teamBank">
+
+                  </ul>
+              </div>
+              <div class = "small-4 columns" style = ""> 
+                  <ul class = "ext_list bankList" id = "indivBank">
+
+                </ul>
+              </div>
+          </div>
+
+      </div>
   </div>
 
   </body>

@@ -7,16 +7,7 @@ $(document).ready(function(){
 	$("#autocomplete2").focus();
 	populateBanks();  
 
-	$(".ui-icon-closethick").click(function(){
-		alert("u clikced X..");
-		// remove element 
-		var termRemove = this.parentNode.innerText;
-		console.log("trying to remove " + termRemove + "...");
-
-		removeFromStorage(termRemove);
-		this.parentNode.remove();
-
-	});
+	
 
 
 	 // AUTO COMPLETE  and Suggested Terms
@@ -129,6 +120,8 @@ $(document).ready(function(){
             });
 
 
+            $(".bankList").on('click', '.ui-icon-closethick', close);
+
 		$( "#myform" ).submit(function( event ) {
 			var term = $("input:first").val();
 
@@ -138,12 +131,18 @@ $(document).ready(function(){
 	    	
             console.log("added: " + term);		
 			$("#autocomplete2").val("");
-
-			event.preventDefault();
-	    		return;
-	  				
+	  		msgbox("indiv term entered");
 		});
 
+
+		function close(){
+			// remove element 
+				var termRemove = this.parentNode.innerText;
+				console.log("trying to remove " + termRemove + "...");
+
+				removeFromStorage(termRemove);
+				this.parentNode.remove();
+		}
 
 		// will add term to 'AllTerms' key and create a key-dict relationship in local storage
 		// @param - the inputted package or term, eg 'New York Knicks' or '!!'

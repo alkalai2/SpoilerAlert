@@ -1,6 +1,6 @@
 $(function(){
-
-        
+    console.log( "in autocomplete..");
+     populateBanks();   
 
     var shows = [
         {value: 'Game of Thrones', data: 'show'},
@@ -83,20 +83,7 @@ $(function(){
        
     var packagesDict = nhlteams.concat(shows).concat(nbateams);
 
-  
-  // setup autocomplete function pulling from currencies[] array
-  
-  // $('#autocomplete').autocomplete({
-
-  //   lookup: packagesDict,
-  //   onSelect: function (suggestion) {
-
-  //     var thehtml = '<li style = "display:none"> ' + suggestion.value + '<span class="ui-icon ui-icon-closethick"></span> </li>';
-  //     $(thehtml).prependTo('#'+suggestion.data+'Bank').fadeIn('slow');
-  //     console.log("resetig with 'forid' .. ");
-  //   }
-  // });
-
+    // AutoComplete and addition to local Storage
 
             $("#autocomplete2").autocomplete({
                 appendTo: "#ouputcontent",
@@ -112,12 +99,71 @@ $(function(){
                     event.preventDefault();
                     // manually update the textbox and hidden field
 
-                    var thehtml = '<li class = "aligned"style = "display:none"> ' + ui.item.value + '<span class="inline ui-icon ui-icon-closethick" ></span> </li>';
-                  $(thehtml).prependTo('#'+ui.item.data+'Bank').fadeIn('slow');
+                    // add term to local storage
+                    var key = 'Term'+ui.item.value.toUpperCase().split(' ').join('_') + '02021994SpoilerAlert';
+                    console.log("adding key: " + key);
+                    if(localStorage[key] === undefined){
+                        var str = localStorage['AllTerms02021994SpoilerAlert'];
+                        localStorage['AllTerms02021994SpoilerAlert'] = str + ui.item.value + '|$|';
+                        console.log("after insertion: " + localStorage['AllTerms02021994SpoilerAlert']);
+
+                        localStorage[key] = ui.item.data;
+                        console.log("inserted localStorage["+key+"]: "+ui.item.data);
+
+
+                    // add term to bank
+                    updateBanks(ui.item.value);
+                    }
+                    else
+                        console.log("term already in storage");
+
+
                     $(this).val("");
+
+
                 }
             });
 
+    
+    function populateBanks(){
+        // will be called on initial page loads
+        // create term array
+        var terms = localStorage['AllTerms02021994SpoilerAlert'].split('|$|');
+        console.log("current AllTerms: " + localStorage['AllTerms02021994SpoilerAlert'].split('|$|'));
+        for(var i = 0; i < localStorage.length-1; i++){
+            if(terms[i]!==undefined){
+                var myKey = 'Term'+terms[i].toUpperCase().split(' ').join('_') + '02021994SpoilerAlert';
+                
+                // term is in our storage, present it on site
+                if(localStorage[myKey] !== undefined){
+                    var myType = localStorage[myKey]; // myType = 'show' , 'team', or 'indiv'
 
+                    // add to appropriate bank
+                    var thehtml = '<li class = "aligned"style = "display:none"> ' + terms[i] + '<span class="inline ui-icon ui-icon-closethick" ></span> </li>';
+                    console.log(thehtml);
+                    console.log(myType);
+                    $(thehtml).prependTo('#'+myType+'Bank').fadeIn('slow');
+                }
+            }
+        }
+    }
+
+    function updateBanks(term){
+        console.log("updating banks with "+ term + " ...");
+        if(term!==undefined){
+                var myKey = 'Term'+term.toUpperCase().split(' ').join('_') + '02021994SpoilerAlert';
+                
+                // term is in our storage, present it on site
+                if(localStorage[myKey] !== undefined){
+                    var myType = localStorage[myKey]; // myType = 'show' , 'team', or 'indiv'
+
+                    // add to appropriate bank
+                    var thehtml = '<li class = "aligned"style = "display:none"> ' + term + '<span class="inline ui-icon ui-icon-closethick" ></span> </li>';
+                    console.log(thehtml);
+                    console.log(myType);
+                    $(thehtml).prependTo('#'+myType+'Bank').fadeIn('slow');
+                }
+            }
+    }
 
 });

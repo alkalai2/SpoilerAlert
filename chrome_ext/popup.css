@@ -1,9 +1,8 @@
 body {
         /*min-width: 357px;*/
         background-color: #d9d9d1;
-        min-width: 400px;
-        min-height:200px;
-        max-height: 400px;
+        min-width: 500px;
+        min-height:250px;
         overflow-x: hidden;
       }
 
@@ -14,8 +13,10 @@ img {
   width: 75px;
   height: 75px;
 }
-.logo{
+#logo{
   color: #FFD42A;
+  font-size: 17px;
+   text-transform: none;
 }
 .breadcrumbs{
   background-color: #444;
@@ -27,4 +28,14 @@ element.style {
 }
 .breadcrumbs > *:before{
   color: #FFD42A;
+}
+ul.ui-autocomplete{
+  max-height: 100px;
+  overflow: auto;
+  font-size: 13px;
+}
+ul.bankList{
+  list-style-type: none;
+  font-size: 12px;
+
 }

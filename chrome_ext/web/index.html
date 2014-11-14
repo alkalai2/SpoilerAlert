@@ -80,7 +80,6 @@
 
 
 <div class = "row" >
-
  <div class = "large-12 columns">
  <div class = "panel central-content">
 
@@ -146,14 +145,27 @@
    		
 		</div>
 	</div>
-	
-	<div id = "outputcontent"> OUTPUT CONTENT
-
+	<div class = "row"style = "text-align: center">
+	<div class = "large-12 columns">
+		<h4 class = "subheader" style = "display: inline-block;">
+			What have we been blocking?
+		</h4>
 	</div>
-	<h4 class = "subheader"> More Data </h4>
-	<div class = "row">
-		<div class = "large-5 columns"> 
-			<div class = "row">
+
+		<div class = "large-4 columns  rowCounts">
+			<div class = "row" >
+				<h6 class = "subheader"> 
+				Total blocked posts : 
+				<span style = "float: right"> 76 </span>
+				</h6>
+
+				<ul class = "countList">
+					<li> Shows : <span class = "counts" id = "showCount"> 32</li>
+					<li> Teams: <span class = "counts" id = "teamCount"> 21</li>
+					<li> Individual Terms : <span class = "counts" id = "indivCount">77</li>
+				</ul>
+			</div> 
+			<div class = "row">	
 				<form class="custom">
 	            <fieldset>
 	              <legend>Who Spoils the most for you?</legend>
@@ -191,7 +203,7 @@
 			</div>
 		</div>
 
-		<div class = "large-7 columns" style = "text-align:center">
+		<div class = "large-7 columns pieChartRow" style = "text-align:center">
 				
 				<div id="container" style="min-width: 400; height: 400; margin: 0 auto"></div>
 				<button class = "tinytiny radius info"  id="btnPieChartAll"> All</button>

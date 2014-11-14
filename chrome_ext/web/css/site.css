@@ -15,7 +15,7 @@ body{
 }
 
 .panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel p{
-	color: #555555;
+	color: #333333;
 }
 .panel.customizeInterests{
 
@@ -36,6 +36,22 @@ legend{
 ul{
 	list-style-type: none;
 	
+}
+.rowCounts{
+	margin-left: 20px;
+	z-index: 1;
+}
+.counts{
+	float: right;
+}
+.pieChartRow{
+	z-index: 2;
+}
+.container{
+	position: absolute;
+}
+.countList{
+	margin-left: 50px;
 }
 fieldset{
 	border-radius: .4em; 

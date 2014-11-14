@@ -43,8 +43,9 @@
                         plotBackgroundColor: null,
                         plotBorderWidth: null,
                         plotShadow: true
-                    }, title: {
-                        text: 'What have we blocked?'
+                     },
+                    title: {
+                        text: ''
                     },
                     tooltip: {
                         formatter: function () {
