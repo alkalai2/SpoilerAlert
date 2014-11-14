@@ -2,18 +2,149 @@
 	Main Page for all CSS effects of the SpoilerAlert site. 
 */
 
+
+body{
+	background-color: #d9d9d1
+}
 .central-content{
 	
 	min-height: 100%;
 }
+.panel{
+	border-color: transparent;
+}
+
+.panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel p{
+	color: #555555;
+}
+.panel.customizeInterests{
+
+	background: #FFD42A;
+	 box-shadow: 3px 3px 1px #bbbbbb;
+}
+#welcome-subText{
+	font-family: "Lucida Grande";
+	font-size: 18px;
+	font-color: #333;
+	font-weight: normal;
+}
+legend{
+	background: tranparent; 
+	border-radius: 2em; 
+	border: 1px solid clear;
+}
+ul{
+	list-style-type: none;
+	
+}
+fieldset{
+	border-radius: .4em; 
+	border: 2px solid #3D9FE0;
+	background: #f9f9f9;
+}
+#showField{
+	border: 2px solid #5E15CF;
+}
+#termField{
+	border-radius: .4em; 
+	border: 2px solid lightgrey;
+	background: clear;
+}
+.ui-autocomplete li {
+    font-size: 14px;
+}
+
+ul.package{
+	text-shadow: 0.3px 0.3px #020202;
+}
+li.package{
+	 text-shadow: 0.3px 0.3px #020202;
+}
 .filler{
 	height: 10px;
 }
-.top-bar-section ul li > a.selected{
-	background-color: red;
+#topNav{
+	/* UCL */
+	background: #444;
+
+	/*
+	background: #3498db;
+	/*background: #061487 */
+	border: 1px solid #f2f2f2;
+}
+#logo{
+	/* UCL */
+	background: #111;
+	/*
+	background: #343a44
+	*/
+}
+#logo:hover{
+	/*UCL */
+	background: #3498db;
+
+
+	/*
+	background: #FAD900;
+	background: #061487*/
+
+
+}
+#signin{
+	/*UCL */
+	color: #f6be00;
+	/*
+	color: #FAD900
+	*/
+}
+.ui-menu-item {
+	
+}
+.ui-state-focus{
+	background: #f0f0f0;
 }
 
 
+.ui-icon.inline { 
+	display:none; 
+	float: right;
+  	}​
+.ui-icon.inline:hover{
+
+}
+.aligned:hover .ui-icon.inline {display: inline-block;  }
+rect{
+	fill: transparent;
+}
+button.tinytiny{
+	padding-top: 0.3rem;
+  padding-right: 0.9rem;
+  padding-bottom: 0.3rem;
+  padding-left: 0.9rem;
+  font-size: 0.3rem;
+}
+#btnPieChartTeams{
+	float: right;
+	margin-right: 5em; 
+	margin-bottom: 20em;
+}
+#btnPieChartShows{
+	display: inline-block;
+	margin-bottom: 20em;
+}
+#btnPieChartAll{
+	float:left;
+	margin-left: 5em; 
+	margin-bottom: 20em;
+}
+#termBank{
+	max-height: 75px;
+  	overflow: auto;
+}
+fieldset>ul{
+	max-height: 50px;
+	overflow: auto;
+}
 /* 
 	Auto Complete
 */
