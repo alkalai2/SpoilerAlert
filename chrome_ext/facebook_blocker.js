@@ -21,7 +21,7 @@ function storeWord(arrayOfWords){
  * @returns - an array of strings of all blocked words
  */
 function getBlockedWords(){
-	return ['KNICKS'];
+	return ['CELTICS'];
 }
 
 /**

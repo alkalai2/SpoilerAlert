@@ -23,7 +23,8 @@ chrome.tabs.onUpdated.addListener(function(id, info, tab){
     //this can be changed to later accomodate a lot more sites
     if(tab.url.toLowerCase().indexOf('facebook.com') >= 0){
     	console.log('On facebook.com');
-    	
+
     	chrome.tabs.executeScript(null, {"file": "facebook_blocker.js"});
+    	return;
     }
 });
