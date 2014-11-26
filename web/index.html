@@ -7,28 +7,26 @@
 
 <!-- css -->
 <link rel="stylesheet" type="text/css" href="css/almost-flat-ui-master/stylesheets/app.css">
- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+ <link rel="stylesheet" href="css/jquery-ui-1.11.2.custom/jquery-ui.css">
  <link rel="stylesheet" type="text/css" href="css/site.css">
 
 <!-- jquery and jqueryui -->
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="js/jquery-1.9.1.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
   <!--<script type="text/javascript" src="js/jquery.autocomplete.min.js"></script> -->
 
 <!-- pie charts -->
-<script src="http://code.highcharts.com/highcharts.js"></script>
-<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script src="js/piechart/highcharts.js"></script>
+<script src="js/piechart/exporting.js"></script>
 
 <!-- my js files -->
-<script type="text/javascript" src="js/input-autocomplete.js"></script>
-<script type="text/javascript" src="js/piechart.js"></script>
+<!--<script type="text/javascript" src="js/input-autocomplete.js"></script> -->
+<script type="text/javascript" src="js/piechart/piechart.js"></script>
 <script type="text/javascript" src="js/site.js"></script>
-
 
 
 </head>
 <body>
-
 <!--
 <div class = "container">    
           <nav class="top-bar" data-topbar="">
@@ -82,7 +80,6 @@
 
 
 <div class = "row" >
-
  <div class = "large-12 columns">
  <div class = "panel central-content">
 
@@ -107,7 +104,6 @@
 		<div class = "panel customizeInterests radius">
 			<h4 class = "subheader"> Your Interests 
 			</h4>
-
 			<div class = "large-12 columns success">
    				<form id = "myform"><input id="autocomplete2" type="text" style = "box-shadow: 1px 1px 1px #bbbbbb"placeholder="Add more Shows, Teams, or terms here .."></form>
 	        </div>
@@ -117,7 +113,7 @@
 				<form >
 	            <fieldset id = "showField">
 	              <legend >Shows</legend>
-	              <ul class = "package"id = "showBank">
+	              <ul class = "bankList package"id = "showBank">
 	          
 	              </ul>
 	            </fieldset>
@@ -128,7 +124,7 @@
 				<form class="custom">
 	            <fieldset>
 	              <legend>Teams</legend>
-	              <ul class = "package" id = "teamBank">
+	              <ul class = " bankList package" id = "teamBank">
 	              </ul>
 	            </fieldset>
 	          	</form>
@@ -138,7 +134,7 @@
 				<form class="custom">
 	            <fieldset id = "termField">
 	              <legend>Indiv. Terms to Block</legend>
-	              <ul id = "termBank">
+	              <ul class = "bankList" id = "indivBank">
 
 	              </ul>
 	            </fieldset>
@@ -149,52 +145,116 @@
    		
 		</div>
 	</div>
-	
-	<div id = "outputcontent"> OUTPUT CONTENT
-
+	<div class = "row"style = "">
+	<div class = "large-12 columns">
+	<div class = "row" style = "text-align: center">
+		<h4 class = "subheader" style = "display: inline-block;">
+			What have we been blocking?
+		</h4>
 	</div>
-	<h4 class = "subheader"> More Data </h4>
-	<div class = "row">
-		<div class = "large-5 columns"> 
-			<div class = "row">
+	</div>
+
+		<div class = "large-4 columns  rowCounts" style = "margin-top: 45px">
+			<div class = "row" >
+
 				<form class="custom">
-	            <fieldset>
+	            <fieldset id = "totalFieldset">
+	            <legend>Total Blocked Posts :          130</legend>
+
+				<!-- <h5 class = "subheader"> 
+				Total blocked posts : 
+				<span style = "float: right"> 76 </span>
+				</h5> -->
+
+				<ul class = "countList">
+					<li> Shows : <span class = "counts" id = "showCount"> 32</span></li>
+					<li> Teams: <span class = "counts" id = "teamCount"> 21 </span></li>
+					<li> Individual Terms : <span class = "counts" id = "indivCount">77</span></li>
+				</ul>
+
+				</fieldset>
+				</form>
+
+
+
+			</div> 
+			<div class = "row">	
+				<form class="custom">
+	            <fieldset id = "countFieldset">
 	              <legend>Who Spoils the most for you?</legend>
-	              <ol>
-	              	<li> <strong>James Rodriguez </strong>
-	              		<span style = "float: right">
+	              <ol style = "margin-left: 30px;" id = "termRanking">
+	              	<li style = ""><strong>James Dean </strong>
+	              	<!-- 	<span class = "listBtns"  style = "float: right;vertical-align: text-bottom"> -->
+	              			
+	              			<!-- <span class="label">R</span>
+	              			<span class="label">R</span>
+	              			<span class="label">R</span> -->
+	              			<!-- <button class = "tinytiny radius info-dark"> m </button>
+	              			<button class = "tinytiny radius inverse"> u</button>
+	              			<button class = "tinytiny radius alert-dark"> f </button> -->
 	              		
-	              			<button class = "tinytiny radius info-dark"> msg </button>
-	              			<button class = "tinytiny radius inverse"> unfollow</button>
-	              			<button class = "tinytiny radius alert-dark"> unfriend </button>
-	              		
-	              		</span>
+	              		<!-- </span> -->
 	              	</li>
-	              	<li> <strong>Edward Wood </strong>
-	              		<span style = "float: right">
+	              	<li style = "line-height: 20px"> <strong class = "listName">Harry Ford</strong>
+	              		<!-- <span class = "listBtns"  style = "float: right; vertical-align: text-bottom"> -->
 	              		
-	              			<button class = "tinytiny radius info-dark"> msg </button>
-	              			<button class = "tinytiny radius inverse"> unfollow</button>
-	              			<button class = "tinytiny radius alert-dark"> unfriend </button>
+	              			<!-- <span class="label">R</span>
+	              			<span class="label">R</span>
+	              			<span class="label">R</span> -->
+	              			<!-- <button class = "tinytiny radius info-dark"> m </button>
+	              			<button class = "tinytiny radius inverse"> u</button>
+	              			<button class = "tinytiny radius alert-dark"> f </button> -->
 	              		
-	              		</span>
+	              		<!-- </span> -->
 	              	</li>
-	              	<li> <strong>Bradley Beal </strong>
-	              		<span style = "float: right; text-align: center">
+	              	<li> <strong class = "listName">Elen Degeneres</strong><!-- <span class = "ui-icon"> words  --><!-- <span class="ui-icon ui-icon-comment" ></span> <span class="ui-icon ui-icon-minusthick" ></span><span class "ui-icon  ui-icon-contact"></span>  --></span>
+
+
+	              			
+	              		 
+	              		<!-- <span class = "listBtns"  style = "float: right;"> -->
+	              			<!-- <span class="label">R</span>
+	              			<span class="label">R</span>
+	              			<span class="label">R</span> -->
+	              			<!-- <button class = "tinytiny radius info-dark"> m </button>
+	              			<button class = "tinytiny radius inverse"> u</button>
+	              			<button class = "tinytiny radius alert-dark"> f </button> -->
 	              		
-	              			<button class = "tinytiny radius info-dark"> msg </button>
-	              			<button class = "tinytiny radius inverse"> unfollow</button>
-	              			<button class = "tinytiny radius alert-dark"> unfriend </button>
-	              		
-	              		</span>
+	              	<!-- 	</span> -->
 	              	</li>
+	              	<li> <strong class ="listName"> Pau Gasol </strong></li>
+	              	<li> <strong class ="listName"> Jordan Farmar </strong></li>
+	              	<li> <strong class ="listName"> Nick Young </strong></li>
+	              	<li> <strong class ="listName"> Ed Davis </strong></li>
+	              	<li> <strong class ="listName"> Wes Johnsons </strong></li>
+
 	              </ol>
+	              </legend>
 	            </fieldset>
 	          	</form>
+
+	          	<!-- <ol id = "newOL"> Your top Spoilers:
+		          	<li>
+		          		Neeraj Asthana
+		          	</li>
+		          	<li>
+		          		Bradley Beal
+		          	</li>
+		          	<li>
+		          		Gareth Bale
+		          	</li>
+		          	<li>
+		          		Dane Cook
+		          	</li>
+
+<span class="label">Regular Label</span>
+	          	</ol> -->
+
+
 			</div>
 		</div>
 
-		<div class = "large-7 columns" style = "text-align:center">
+		<div class = "large-7 columns pieChartRow" style = "text-align:center">
 				
 				<div id="container" style="min-width: 400; height: 400; margin: 0 auto"></div>
 				<button class = "tinytiny radius info"  id="btnPieChartAll"> All</button>
