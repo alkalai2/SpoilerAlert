@@ -15,7 +15,7 @@ body{
 }
 
 .panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel p{
-	color: #555555;
+	color: #333333;
 }
 .panel.customizeInterests{
 
@@ -36,6 +36,30 @@ legend{
 ul{
 	list-style-type: none;
 	
+}
+.rowCounts{
+	margin-left: 60px;
+	z-index: 1;
+}
+#countFieldset{
+	background: #f5f5f5;
+}
+#totalFieldset{
+	background: #f5f5f5;
+}
+.counts{
+	float: right;
+}
+.pieChartRow{
+	z-index: 2;
+}
+.container{
+	position: absolute;
+}
+.countList{
+	margin-left: 50px;
+	max-height: 90px;
+  	overflow: auto;
 }
 fieldset{
 	border-radius: .4em; 
@@ -59,6 +83,13 @@ ul.package{
 }
 li.package{
 	 text-shadow: 0.3px 0.3px #020202;
+}
+ul.bankList{
+	max-height: 4em;
+	margin-left: 0;
+	margin-bottom: 0;
+	margin-top: 0;
+	margin-right: 0;
 }
 .filler{
 	height: 10px;
@@ -117,10 +148,10 @@ rect{
 	fill: transparent;
 }
 button.tinytiny{
-	padding-top: 0.3rem;
-  padding-right: 0.9rem;
-  padding-bottom: 0.3rem;
-  padding-left: 0.9rem;
+padding-top: 0.2rem;
+  padding-right: 0.4rem;
+  padding-bottom: 0.2rem;
+  padding-left: 0.4rem;
   font-size: 0.3rem;
 }
 #btnPieChartTeams{
@@ -145,6 +176,24 @@ fieldset>ul{
 	max-height: 50px;
 	overflow: auto;
 }
+#termRanking{
+
+	max-height: 90px;
+	overflow: auto;
+}
+}
+#termRanking > ol>li{
+	float: left;
+}
+
+.listBtns{
+	 /*display: none;*/
+	 vertical-align: text-bottom;
+}
+.listName{
+	display: block;
+}
+
 /* 
 	Auto Complete
 */

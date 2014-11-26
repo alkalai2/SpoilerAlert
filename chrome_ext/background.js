@@ -17,9 +17,9 @@ chrome.tabs.onUpdated.addListener(function(id, info, tab){
 	console.log('URL: ' + tab.url);
 
 	//checks to make sure that the page has completely loaded before attempting to inject a script
-	if (tab.status !== "complete"){
-        return;
-    }
+	// if (tab.status !== "complete"){
+ //        return;
+ //    }
 
     //checks that the site is facebook.com
     //this can be changed to later accomodate a lot more sites
