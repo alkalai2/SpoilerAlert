@@ -38,8 +38,14 @@ ul{
 	
 }
 .rowCounts{
-	margin-left: 20px;
+	margin-left: 60px;
 	z-index: 1;
+}
+#countFieldset{
+	background: #f5f5f5;
+}
+#totalFieldset{
+	background: #f5f5f5;
 }
 .counts{
 	float: right;
@@ -52,6 +58,8 @@ ul{
 }
 .countList{
 	margin-left: 50px;
+	max-height: 90px;
+  	overflow: auto;
 }
 fieldset{
 	border-radius: .4em; 
@@ -140,10 +148,10 @@ rect{
 	fill: transparent;
 }
 button.tinytiny{
-	padding-top: 0.3rem;
-  padding-right: 0.9rem;
-  padding-bottom: 0.3rem;
-  padding-left: 0.9rem;
+padding-top: 0.2rem;
+  padding-right: 0.4rem;
+  padding-bottom: 0.2rem;
+  padding-left: 0.4rem;
   font-size: 0.3rem;
 }
 #btnPieChartTeams{
@@ -168,6 +176,24 @@ fieldset>ul{
 	max-height: 50px;
 	overflow: auto;
 }
+#termRanking{
+
+	max-height: 90px;
+	overflow: auto;
+}
+}
+#termRanking > ol>li{
+	float: left;
+}
+
+.listBtns{
+	 /*display: none;*/
+	 vertical-align: text-bottom;
+}
+.listName{
+	display: block;
+}
+
 /* 
 	Auto Complete
 */

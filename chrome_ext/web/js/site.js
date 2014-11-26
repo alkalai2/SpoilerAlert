@@ -7,7 +7,14 @@ $(document).ready(function(){
 	$("#autocomplete2").focus();
 	populateBanks();  
 
-	
+	$(".listName").on('click', function(){
+		var somehtml = '<button class = "tinytiny radius info-dark" style  = "display: none"> msg </button>
+	              			<button class = "tinytiny radius inverse" style = "display: none"> unfollow</button>
+	              			<button class = "tinytiny radius alert-dark" style = "display: none"> unfriend </button>';
+
+		console.log('name clicked');
+		 $(somehtml).appendTo(".listBtns").fadeIn('slow');
+	});
 
 
 	 // AUTO COMPLETE  and Suggested Terms
