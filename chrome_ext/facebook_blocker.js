@@ -33,11 +33,13 @@ function getBlockedWords(){
 function unblockPost(item, div){
 	console.log("unblocking post!");
 
-	var paragraphs = item.getElementsByTagName('p');
-	for(var i = 0; i < paragraphs.length; i++){
-		paragraphs[i].style.color='#141823';
-		paragraphs[i].style.textShadow='initial';
-	}
+	item.style.color='#141823';
+	item.style.textShadow='initial';
+	// var paragraphs = item.getElementsByTagName('p');
+	// for(var i = 0; i < paragraphs.length; i++){
+	// 	paragraphs[i].style.color='#141823';
+	// 	paragraphs[i].style.textShadow='initial';
+	// }
 
 	//block shitty images and videos
 
@@ -46,7 +48,7 @@ function unblockPost(item, div){
   	for(var i = 0; i < nodes.length; i++){
   		nodes[i].style.opacity=1;
   	}
-  	item.style.backgroundColor='#fff';//'#3B5998';//actual background color: #e9eaed
+  	item.style.background='#fff';//'#3B5998';//actual background color: #e9eaed
   	item.style.pointerEvents='auto';
 
   	//changing the div
@@ -58,52 +60,70 @@ function unblockPost(item, div){
  * 
  */
 function blockFacebookItem(item, term){
-
 	if(!item)
 		return;
 
 	var nodes = item.childNodes;
+  	var holderDiv = item.firstChild;
 
-	var unblocked = nodes[0].getAttribute('id');
-	if(item.style.pointerEvents==='none' || unblocked === 'SpoilerAlertBlockingDiv')
+  	if(!holderDiv)
+  		return;
+
+	if(item.style.pointerEvents==='none' || holderDiv.firstChild !== null)
 		return;
 
 	//block out all of the shitty text
-	var paragraphs = item.getElementsByTagName('p');
-	for(var i = 0; i < paragraphs.length; i++){
-		paragraphs[i].style.color='transparent';
-		paragraphs[i].style.textShadow='0 0 5px rgba(0,0,0,0.5)';
-	}
+	item.style.textShadow='0 0 5px rgba(0,0,0,0.5)';
+	item.style.color='transparent';
 
 	//block shitty images and videos
 
 	//put filters on top of post while changing the opacity
-  	for(var i = 0; i < nodes.length; i++){
+  	for(var i = 1; i < nodes.length; i++){
   		nodes[i].style.opacity=.1;
   	}
-  	item.style.backgroundColor='#E1E1DA';//'#3B5998';//actual background color: #e9eaed
+
   	item.style.pointerEvents='none';
+
+  	//make the name + pic visible
+  	//item.getElementsByClassName('clearfix')[0].style.zIndex=50;
+
+
+  	//my additions for the divs
+  	holderDiv.style.position="absolute";
+	holderDiv.style.top="0px";
+	holderDiv.style.left="0px";
+	holderDiv.style.zIndex=9;
+  	holderDiv.style.minWidth=(item.offsetWidth).toString() + 'px';
+  	holderDiv.style.minHeight=(item.offsetHeight).toString() + 'px';
+ 	holderDiv.style.maxWidth=(item.offsetWidth).toString() + 'px';
+	holderDiv.style.maxHeight=(item.offsetHeight).toString() + 'px';
+	holderDiv.style.background='linear-gradient(rgba(59,89,152,.7), rgba(255,255,255,.7))';
+
   	
-  	var div = document.createElement("div");
+  	var div = createBlockingDiv(item.offsetWidth - 50, item.offsetHeight - 30, term, item);
   	div.onclick=function(){
-  		console.log("inside listner...");
-  		unblockPost(item, div);
+  		unblockPost(item, holderDiv);
   	};
+	holderDiv.appendChild(div);
+	div.style.pointerEvents='auto';
+}
+
+function createBlockingDiv(width, height, term){
+	var div = document.createElement("div");
 
   	var imgurl = chrome.extension.getURL("SpoilerAlert.png");
 
-  	div.style.backgroundColor='#3498db';
-  	div.style.opacity=.9;
+  	div.style.background='linear-gradient(rgba(0,0,0,.5), rgba(255,255,255,.7))';
   	div.setAttribute("id", "SpoilerAlertBlockingDiv");
-  	div.innerHTML = '<p style="font-size: 20px; color: #FFD42A;">SPOILER ALERT</p>'
-  		+ '<img src="' + imgurl +'" alt="logo" style="margin-left: auto; margin-right: auto">'
+  	div.innerHTML = makeLogo()
   		+ '<p style="font-size: 13px;">Post contained a Possible Spoiler</p>'
   		+ '<p style="font-size: 13px; color: #5E15CF;">'+ term + '</p>';
 
   	div.whiteSpace="nowrap";
-  	div.style.minWidth=(item.offsetWidth - 50).toString() + 'px';
-  	div.style.maxWidth=(item.offsetWidth - 50).toString() + 'px';
-  	div.style.maxHeight=(item.offsetHeight - 30).toString() + 'px';
+  	div.style.minWidth=width.toString() + 'px';
+  	div.style.maxWidth=width.toString() + 'px';
+  	div.style.maxHeight=height.toString() + 'px';
 
   	div.style.marginLeft="25px";
   	div.style.marginRight="25px";
@@ -111,14 +131,21 @@ function blockFacebookItem(item, term){
   	div.style.marginBottom="15px";
   	div.style.borderRadius="4px";
   	div.style.boxShadow="1px 1px 1px #999999";
+  	div.style.lineHeight="10%";
 
+  	div.style.color='#141823';
+	div.style.textShadow='initial';
   	div.style.textAlign="center";
 	div.style.position="absolute";
 	div.style.top="0px";
 	div.style.left="0px";
 	div.style.zIndex=10;
-	item.insertBefore(div, nodes[0]);
-	div.style.pointerEvents='auto';
+	return div;
+}
+
+function makeLogo(){
+	var style = "line-height: 1.5; font-size: 3em; font-weight: bolder; color: #fff; text-shadow: 1px 1px #000; background: #111; font-family: 'PT Sans', 'Helvetica Neue', Arial, sans-serif;";
+	return  '<p style="' + style + '">SpoilerAlert</p>';
 }
 
 /**
@@ -140,9 +167,24 @@ function shouldBlock(post){
  */
 function blockSpoilerPosts(posts){
 	for(var i = 0; i < posts.length; i++){
-		var toBlock = shouldBlock(posts[i]);
+		var currentPost = posts[i];
+
+		//check to make sure we have not already checked this post
+		var isChecked = currentPost.firstChild.getAttribute('id') === "SpoilerAlertHolderDiv";
+		if(isChecked)
+			return;
+		/*
+			insert newest div about blocker holder here... 
+			- make div and give it a class name
+			- check for this div before calling shouldBlock
+		*/
+		var div = document.createElement("div");
+		div.setAttribute("id", "SpoilerAlertHolderDiv");
+		currentPost.insertBefore(div, currentPost.firstChild);
+
+		var toBlock = shouldBlock(currentPost);
 		if(toBlock){
-			blockFacebookItem(posts[i], toBlock);
+			blockFacebookItem(currentPost, toBlock);
 		}
 	}
 }
@@ -164,6 +206,7 @@ function facebookBlocker(){
 	console.log('executing blocking');
 	var newsfeedStories = getNewsfeedStories();
 	blockSpoilerPosts(newsfeedStories);
+	blockFacebookItem(newsfeedStories[0], "testing");
 }
 
 /**
@@ -172,7 +215,6 @@ function facebookBlocker(){
 function initFacebookBlocker(){
 	//Gets data from local storage
 	chrome.extension.sendMessage({storage: 'AllTerms02021994SpoilerAlert'}, function(response) {
-		console.log('response => ' + response.storage);
 		AllTermsString = response.storage;
 	});
 	setTimeout(facebookBlocker, 500);
