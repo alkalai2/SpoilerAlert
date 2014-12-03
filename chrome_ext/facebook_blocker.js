@@ -203,10 +203,12 @@ function blockSpoilerPosts(posts){
  * Controller function that will delegate to other functions
  */
 function facebookBlocker(){
+	if(AllTermsString.length <= 3)
+		return;
 	console.log('executing blocking');
 	var newsfeedStories = getNewsfeedStories();
 	blockSpoilerPosts(newsfeedStories);
-	blockFacebookItem(newsfeedStories[0], "testing");
+	//blockFacebookItem(newsfeedStories[0], "testing");
 }
 
 /**
