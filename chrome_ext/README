@@ -1,0 +1,8 @@
+To run our application, please make sure you have Google Chrome downloaded.
+
+Steps:
+1. Go to the extensions page of Google Chrome (Menu-> More tools-> Extensions)
+2. Click on the checkbox labeled "Developer mode" in the top right portion of the page
+3. Then click "Load unpacked extension" on the top of the page
+4. Direct your file system to the folder labeled "chrome_ext"
+5. Click "ok" and our Spoiler Alert extension should exist on your Chrome browser and should be ready for use. 
