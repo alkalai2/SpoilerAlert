@@ -4,7 +4,7 @@
     <title>Getting Started Extension's Popup</title>
       
     <link rel="stylesheet" type="text/css" href="almost-flat-ui.css">
-    <link rel="stylesheet" type="text/css" href="web/cssite.css">
+    <link rel="stylesheet" type="text/css" href="web/css/site.css">
      <link rel="stylesheet" href="web/css/jquery-ui-1.11.2.custom/jquery-ui.css">
     <!-- css specific to chrome popup -->
     <link rel="stylesheet" type="text/css" href="popup.css">
@@ -26,40 +26,74 @@
   <div class = "row">
 
           <ul class="breadcrumbs">
-            <li id = "logo"> <a id ="alogo" href="#">SpoilerAlert </a></li>
-            <li class="unavailable"><a href="#">no more spoilers</a></li>
+            <li id = "logo1" style = ""> <a id ="alogo" href="#">SpoilerAlert </a></li>
+            <li class="unavailable"><a href="#">home</a></li>
+            <li class="unavailable"><a href="#">settings</a></li>
+            <li class = "unavailable" style = "float: right"> <a href="#">help</a></li>
           </ul>
 
   </div>
 
 
   <div class = "row">
+
       <div class = "large-12 columns success" style = "margin-top: 7px;">
           <form id = "myform"><input id="autocomplete2" type="text" style = "box-shadow: 1px 1px 1px #bbbbbb"placeholder="Add more Shows, Teams, or terms here .."></form>
           </div>
   </div>
 
-  <div class = "row" align = "centered">
-      <div class = "small-12 columns" style = "">
-          <span style = "color: grey"> Your interests: </span>
+  <div class = "row" align = "centered" style = "height: 0">
+      <div class = "small-12 columns" style = "height: 0">
+        
+          <!-- <span style = "color: grey"> Your interests: </span> -->
+          <!-- <div class = "row filler" style "height = 3px"> </div> -->
           <div class = "row">
               <div class = "small-4 columns" style = "">
-                  <ul class = "ext_list bankList" id = "showBank">
-
-                  </ul>
+                  <form >
+                  <fieldset id = "showField">
+                    <legend >Shows</legend>
+                    <ul>
+                        <li> Walking Dead </li>
+                        <li></li>
+                        <li> Scrubs</li>
+                    </ul>
+                  </fieldset>
+                  </form>
 
               </div>
-              <div class = "small-4 columns" style = ""> 
-                  <ul class = "ext_list bankList" id = "teamBank">
+              <div class = "small-4 columns" style = "">
+                  <form >
+                  <fieldset id = "teamField">
+                    <legend >Teams</legend>
+                    <ul>
+                        <li> Miami Heat</li>
+                        <li> Utah Jazz</li> 
+                        <li> Boston Bruins</li>
+                    </ul>
+                  </fieldset>
+                  </form>
 
-                  </ul>
               </div>
-              <div class = "small-4 columns" style = ""> 
-                  <ul class = "ext_list bankList" id = "indivBank">
+              <div class = "small-4 columns" style = "">
+                  <form >
+                  <fieldset id = "indivField">
+                    <legend >terms</legend>
+                    <ul>
+                        <li> Babies</li>
+                        <li> Neeraj <li>
+                    </ul>
+                  </fieldset>
+                  </form>
 
-                </ul>
               </div>
           </div>
+
+          <div class = "row" style = "text-align: center">
+            
+            <p id = "blocked_posts" style = ""> so far we've blocked <span style = "color: blue; font-size: 14">33</span> possible spoilers
+            <a class = "tinytiny disabled " style = "float: right; font-size: 12px ; margin-bottom: 10px; margin-right: 10px"> see blocking statistics </a> <p>
+          </div>
+
 
       </div>
   </div>

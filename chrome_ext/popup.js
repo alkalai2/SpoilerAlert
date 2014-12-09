@@ -8,18 +8,18 @@
 $(document).ready(function(){
   console.log("in popup.js...");
 
-  $("#autocomplete2").focus();
+  $("#myform").focus();
 });
 
-document.addEventListener('DOMContentLoaded', function(){
-	var mybutt = document.getElementById('alogo');
-  	console.log(mybutt);
-  	mybutt.addEventListener('click', function(){
-  		console.log("inside listner...");
-  		var spoilerAlertURL = chrome.extension.getURL("web/index.html");
-  		chrome.tabs.create({url: spoilerAlertURL});
-	});
-})
+// document.addEventListener('DOMContentLoaded', function(){
+// 	var mybutt = document.getElementById('alogo');
+//   	console.log(mybutt);
+//   	mybutt.addEventListener('click', function(){
+//   		console.log("inside listner...");
+//   		var spoilerAlertURL = chrome.extension.getURL("web/index.html");
+//   		chrome.tabs.create({url: spoilerAlertURL});
+// 	});
+// })
 
 // function goToSpoilerAlert(){
 // 	console.log('inside listener script');
