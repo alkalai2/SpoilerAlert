@@ -5,53 +5,46 @@
     Spoiler Alert - no more Spoilers!
 </title>
 
-<!-- css -->
-<link rel="stylesheet" type="text/css" href="css/almost-flat-ui-master/stylesheets/app.css">
- <link rel="stylesheet" href="css/jquery-ui-1.11.2.custom/jquery-ui.css">
- <link rel="stylesheet" type="text/css" href="css/site.css">
- <link rel="stylesheet" type="text/css" href="css/settings.css">
-<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> -->
-
-<!-- jquery and jqueryui -->
+<!-- from index.html -->
 <script src="js/jquery-1.9.1.min.js"></script>
   <script src="js/jquery-ui.min.js"></script>
-  <!--<script type="text/javascript" src="js/jquery.autocomplete.min.js"></script> -->
+<script type="text/javascript" src="js/site.js"></script>
+ 
+ <!-- For charts and analytics  -->
 
-<!-- pie charts -->
-<script src="js/piechart/highcharts.js"></script>
-<script src="js/piechart/exporting.js"></script>
+ <script type="text/javascript" src="charts.js"></script>
 
-<!-- my js files -->
-<!--<script type="text/javascript" src="js/input-autocomplete.js"></script> -->
-<script type="text/javascript" src="js/settings.js"></script>
+
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/test.css">
+<link rel="stylesheet" type="text/css" href="css/settings.css">
+
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans" />
+
 
 
 </head>
-<body>
+<body style="background: #f7f7f7">
 
 
-<nav role="navigation" id = "topNav" class="navigation">
-    <div class="navigation-container">
-      <ul class="logo-navigation">
-        <li>
-          <a href="index.html" id = "logo" title="Spoiler Alert">SpoilerAlert</a>
-        </li>
-      </ul>
-      <ul class="main-navigation">
-          <li><a href="index.html">Profile</a></li>
-          <li><a href="#" class = "active">Settings</a></li>
-          <li><a hred = "about.html"> About</li>
-          <li> <a id = "signin" href = "#"><strong> Sign Up </strong></a> </li>
-      </ul>
-    </div>
-  </nav>
+  <nav id = "SAnavbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
+  <div class="container" style = "margin-left: 80px">
+  <a class="navbar-brand" style = "font-size: 37px;" href="#">SpoilerAlert</a>  
+     <ul class="nav navbar-nav" style = "margin-left:20px">
+
+        <li class="current"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Settings</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+  </div>
+</nav>
 
 
 
 
-<div class = "row" >
- <div class = "large-12 columns">
- <div class = "panel central-content">
+<div class = "row"> 
+  <div class = " main-panel col-md-10 col-md-offset-1" > <!-- main content panel  --> 
 
     <div>
       <h5 style="padding-left: 50px">
@@ -60,8 +53,8 @@
 
     </div> 
     <div class = "row">
-    <div class = "large-1 columns" ><!-- filler column, for alignment --><pre> </pre></div>
-    <div class = "large-4 columns" >
+    <div class = "col-md-1" ><!-- filler column, for alignment --><pre> </pre></div>
+    <div class = "col-md-5" >
         <!-- Settings -->  
         <div class = "row">
             <div id="slider"></div>
@@ -71,28 +64,44 @@
         </div>
     </div>
 
-    <div class = "large-7 columns" style = " ">
+    <div class = "col-md-6" style = " ">
         <span style = "color: grey; font-size: .9em; padding-left: 35%"> <i> Facebook preview </i> </span>
 
         <div class = "row" style = "">
             <div class = "row filler"style = "height: 10px"> </div>
-            <div class = "large-11 columns" style="background: #e9eaed">
+            <div class = "col-md-11" style = "font-family: Helvetica ">
                 
-               <div class = "row filler"style = "height: 8px"> </div>
-                <div class="panel panel-default" style="">
-                  <div class="panel-body" >
 
+
+               
+                <div class="panel panel-default" style="">
+                  <div id = "holder" >
+                    
+                    <br> <br> <br>
+
+                    <img id = "icon" src = "imgs/SpoilerAlert.png">
+                    <br>
+                    <br>
+
+                    <p style="font-size: 23px; color: #555555;">Post contained a Possible Spoiler</p>
+                    
+                    <p style="font-size: 23px; color: #2B919B;"> Game of Thrones</p>
+                  </div>
+                  <div id = "facebook" class="panel-body" >
+                  
                       <div id = "top_fb_div" class = "row" style = "">
-                        <p class = "fb_p "> <img src="fb_imgs/fb_top.png" > <p>
-                        <p class = "fb_p text" style = "color: #333">Sack... Strip... Scoop... and SCORE! Defensive Coordinator John Pagano takes us through it step by step.</p>
-                        <p class = "fb_p text" style = "color: #333">WATCH MORE: <a href = "#" > http://chrg.rs/23raw </a></p>
-                        <p> <img src="fb_imgs/fb_vid.png" style = "width:100%;" > </p>
+
+                        <p class = "fb_p "> <img class = "fb_img" src= "imgs/fb_top.png" > </p>
+                        <p class = "fb_p text" style = "">Sack... Strip... Scoop... and SCORE! Defensive Coordinator John Pagano takes us through it step by step.</p>
+                        <p class = "fb_p text" >WATCH MORE: <a href = "#" > http://chrg.rs/23raw </a></p>
+                        <p> <img class = "fb_img" src= "imgs/fb_vid.png" style = "width:100%;" > </p>
                       </div>
                       <div id = "bottom_fb_div" class = "row" style = "background: #f7f7f7; border-top: 1px solid #ddd; border-radius: 2px;"> 
-                        <p style = "margin-bottom: 5px"> <img src="fb_imgs/fb_likes.png" style = "width:100%; margin-bottom: 3px" > 
-                        <img src="fb_imgs/fb_bottom.png" style = "width:100%;" >
+                        <p style = "margin-bottom: 5px"> <img class = "fb_img"src= "imgs/fb_likes.png" style = "width:100%; margin-bottom: 3px" > 
+                        <img class = "fb_img" src= "imgs/fb_bottom.png" style = "width:100%;" >
                         </p>
                       </div>
+                  
                  </div>
                  </div>
 
@@ -108,7 +117,7 @@
 
  </div>
  </div>
- </div>
+
 
 
 

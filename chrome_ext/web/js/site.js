@@ -6,7 +6,6 @@ $(document).ready(function(){
 	// On Load JS
 	$("#autocomplete2").focus();
 	populateBanks();  
-	console.log("newshit");
     
 
 
@@ -123,7 +122,7 @@ $(document).ready(function(){
             });
 
 
-            $(".bankList").on('click', '.ui-icon-closethick', close
+            $(".bankList").on('click', '.closeMe', close
             // 	function(){
             
             // 	//$(this).parent().fadeOut(150);
@@ -152,20 +151,22 @@ $(document).ready(function(){
 
 				removeFromStorage(termRemove);
 				this.parentNode.remove();
+
 		}
 
 		// will add term to 'AllTerms' key and create a key-dict relationship in local storage
 		// @param - the inputted package or term, eg 'New York Knicks' or '!!'
 		function storeData(term, data){
 			term = term.trim();
-			var key = 'Term'+term.toUpperCase().split(' ').join('_') + '02021994SpoilerAlert';
+			var key = term.toUpperCase().split(' ').join('_') + '02021994SpoilerAlert';
 			if(localStorage[key] === undefined){
 				var str = localStorage['AllTerms02021994SpoilerAlert'];
 	            localStorage['AllTerms02021994SpoilerAlert'] = str + term + '|$|';
+	            localStorage['Stats'+key] = 0;
 	            console.log("after insertion: " + localStorage['AllTerms02021994SpoilerAlert']);
 
-	            localStorage[key] = data;
-	            console.log("inserted localStorage["+key+"]: "+data);
+	            localStorage["Term"+key] = data;
+	            console.log("inserted localStorage[Term" + key+"]: "+data);
 	            return 1;
 	        }
 	        else{
@@ -202,7 +203,7 @@ $(document).ready(function(){
 		                    var myType = localStorage[myKey]; // myType = 'show' , 'team', or 'indiv'
 
 		                    // add to appropriate bank
-		                    var thehtml = '<li class = "aligned"style = "display:none"> ' + terms[i] + '<span class="inline ui-icon ui-icon-closethick" ></span> </li>';
+		                    var thehtml = '<li class = "aligned"style = "display:none"> ' + terms[i] + /*'<span class="inline ui-icon ui-icon-closethick" ></span>*/'<span class = "closeMe" ><img src= "imgs/greyClose.png" style = " height: 10px; width: 10px;" ></img> </span></li>';
 		                    console.log(thehtml);
 		                    console.log(myType);
 		                    $(thehtml).prependTo('#'+myType+'Bank').fadeIn('slow');
@@ -222,7 +223,7 @@ $(document).ready(function(){
 	                    var myType = localStorage[myKey]; // myType = 'show' , 'team', or 'indiv'
 
 	                    // add to appropriate bank
-	                    var thehtml = '<li class = "aligned"style = "display:none"> ' + term + '<span class="inline ui-icon ui-icon-closethick" ></span> </li>';
+	                    var thehtml = '<li class = "aligned" style = "display:none"> ' + term + /*'<span class="inline ui-icon ui-icon-closethick" ></span>*/ ' <span class = "closeMe"><img src= "imgs/greyClose.png" style = " height: 10px; width: 10px;" ></img> </span></li>';
 	                    console.log(thehtml);
 	                    console.log(myType);
 	                    $(thehtml).prependTo('#'+myType+'Bank').fadeIn('slow');
