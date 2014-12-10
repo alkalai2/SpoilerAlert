@@ -11,3 +11,6 @@ Person[insert person name] - people that we might want to take off facebook
 
 Statistics:
 TotalBlocked02021994SpoilerAlert - number of posts we've blocked so far
+Totalshows02021994SpoilerAlert - number of show posts we've blocked so far
+Totalsports02021994SpoilerAlert - number of sports posts we've blocked so far
+Totalindividual02021994SpoilerAlert - number of individual term posts we've blocked so far

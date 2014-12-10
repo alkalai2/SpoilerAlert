@@ -18,7 +18,7 @@ var AllTermsString = '|$|';
 function getBlockedWords(){
 	//Gets data from local storage
 	chrome.extension.sendMessage({storage: 'AllTerms02021994SpoilerAlert'}, function(response) {
-		AllTermsString = response.storage;
+		AllTermsString = response.resp;
 	});
 
 	var termsString = AllTermsString;
@@ -31,10 +31,11 @@ function getBlockedWords(){
  * Adds various statistics to Chrome Memory
  *
  */
-function updateStatistics(addPost, type, name){
+function updateStatistics(term){
 	//add 1 to posts blocked posts
-	chrome.extension.sendMessage({totalPosts: 'TotalBlocked02021994SpoilerAlert'}, function(response) {
-		AllTermsString = response.storage;
+	//updates specific term and the show/sport/indv. term column
+	chrome.extension.sendMessage({totalPosts: 'TotalBlocked02021994SpoilerAlert', termValue: term.toUpperCase()}, function(response) {
+		console.log('Total Blocked: ' + response.resp);
 	});
 }
 
@@ -57,7 +58,7 @@ function unblockPost(item, div){
 		nodes[i].style.textShadow='initial';
 		nodes[i].style.color='#141823';
 		//put filters on top of post while changing the opacity
-		nodes[i].style.opacity=11;
+		nodes[i].style.opacity=.1;
 		nodes[i].style.pointerEvents='auto';
 	}
 
@@ -154,6 +155,8 @@ function blockFacebookItem(item, term){
   	image.onmouseout=function(){
   		image.style.boxShadow = "initial";
   	};
+
+  	updateStatistics(term);
 }
 
 function createBlockingDiv(width, height, term){
