@@ -4,32 +4,34 @@
 
 
 body{
-	background-color: #d9d9d1
+	background-color: #f0f0f0
 }
 .central-content{
-	
+	background: #fefefe;
 	min-height: 100%;
+	box-shadow: 0px 0px 3px #ccc;
 }
 .panel{
 	border-color: transparent;
 }
 
 .panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel p{
-	color: #333333;
+	color: #555;
 }
 .panel.customizeInterests{
 
-	background: #FFD42A;
-	 box-shadow: 3px 3px 1px #bbbbbb;
+	background: #fff700;
+	 box-shadow: 0px 0px 6px #ddd;
+	 border-radius: 1px;
 }
 #welcome-subText{
-	font-family: "Lucida Grande";
+
 	font-size: 18px;
 	font-color: #333;
 	font-weight: normal;
 }
 legend{
-	background: tranparent; 
+	background: transparent; 
 	border-radius: 2em; 
 	border: 1px solid clear;
 }
@@ -42,10 +44,10 @@ ul{
 	z-index: 1;
 }
 #countFieldset{
-	background: #f5f5f5;
+	background: transparent;
 }
 #totalFieldset{
-	background: #f5f5f5;
+	background: transparent;
 }
 .counts{
 	float: right;
@@ -62,15 +64,16 @@ ul{
   	overflow: auto;
 }
 fieldset{
-	border-radius: .4em; 
+	border-radius: .15em; 
 	border: 2px solid #3D9FE0;
-	background: #f9f9f9;
+	color: #444;
+
 }
 #showField{
-	border: 2px solid #5E15CF;
+	border: 2px solid #9869E1;
 }
 #termField{
-	border-radius: .4em; 
+	border-radius: .15em; 
 	border: 2px solid lightgrey;
 	background: clear;
 }
@@ -173,7 +176,7 @@ padding-top: 0.2rem;
   	overflow: auto;
 }
 fieldset>ul{
-	max-height: 50px;
+	max-height: 80px;
 	overflow: auto;
 }
 #termRanking{
@@ -197,7 +200,7 @@ fieldset>ul{
 /* 
 	Auto Complete
 */
-.autocomplete-suggestions { border: 1px solid #f0f0f0; background: #fff; opacity: .97; cursor: default; overflow: auto; }
+/*.autocomplete-suggestions { border: 1px solid #f0f0f0; background: #fff; opacity: .97; cursor: default; overflow: auto; }
 .autocomplete-suggestion { padding: 10px 5px; font-size: .875em; white-space: nowrap; overflow: hidden; }
 .autocomplete-selected { background: #f0f0f0; }
-.autocomplete-suggestions strong { font-weight: normal; color: #3399ff; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399ff; }*/

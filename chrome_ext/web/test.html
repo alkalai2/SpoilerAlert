@@ -1,10 +1,86 @@
 <!doctype html>
 <html lang="en">
 <head>
+<!-- from index.html -->
+<script src="js/jquery-1.9.1.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/site.js"></script>
+ <!-- trying to use bootstap  -->
+
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
 
   <title>jQuery UI Accordion - Default functionality</title>
  </head>
 
-  <body>
+  <body style="background: #f2f2f2">
+
+
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container" style = "margin-left: 80px">
+  <a class="navbar-brand" style = "font-size: 34px" href="#">Brand</a>	
+     <ul class="nav navbar-nav" style = "margin-left:20px">
+
+        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Settings</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class = "row"> 
+	<div class = "col-md-10 col-md-offset-1" style = "background: #fcfcfc; margin-top: 50px; min-height: 600px; box-shadow: 0px 0px 7px #bbb"> <!-- main content panel  --> 
+		
+
+		<div class = "row filler" style = "min-height: 20px"></div>
+		<div class = "row">
+			<div class = "col-md-10 col-md-offset-1">
+				<span  id = "welcome-subText" >Welcome to <span style = "color: #333"> <b>SpoilerAlert</b> </span>.We remove the 'spoilers' related to your favorite <span style = "color: #5E15CF">Shows</span> and <span style = "color: #3498db">Sports Teams </span> from your Facebook feeds. Just tell us what you follow - we'll do the rest. </span></span>
+			</div>
+		</div> 
+		<div class = "row filler" style = "min-height: 20px"></div>
+		<div class = "row">
+			<div class = "col-md-11 " style = "margin-left: 4%">
+			<div class="panel panel-default" style="background: #fff700; box-shadow: 0px 0px 6px #bbb; border-radius: 1px ">
+			  <div class="panel-body">
+			  		<input type="text" class="form-control" style = "border-width: 2px; border-radius: 1px;  box-shadow: 1px 1px 0px #ddd;"placeholder="Add more Shows, Teams, and Terms ...">
+			  		<div class = "row filler" style = "min-height: 20px"></div>
+			  		<div class = "row">
+			  			<div class = "col-md-11 " style="margin-left: 4%;">
+			  				<div class = "row">
+			  					<div class = "col-md-4" style="">
+			  						<div class="well" style="padding-top: 0px; background: #FFF94d; border: 2px solid #9869E1; border-radius: 2px; ">
+			  							<h5> Shows </h5>
+
+			  						</div>
+			  					</div>
+			  					<div class = "col-md-4" style="">
+			  						<div class="well" style="padding-top: 0px; background: #FFF94d; border: 2px solid #3D9FE0; border-radius: 2px; ">
+			  							<h5> Teams </h5>
+			  						</div>
+			  					</div>
+			  					<div class = "col-md-4" style=" ">
+			  						<div class="well" style="padding-top: 0px; background: #FFF94d; border: 2px solid #ccc; border-radius: 2px; ">
+			  							<h5> Individual Terms </h5>
+			  						</div>
+			  					</div>
+			  				</div>
+			  			</div>
+			  		</div>
+			  </div>
+			</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+
+
+
+
 </body>
 </html>

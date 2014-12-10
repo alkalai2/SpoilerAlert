@@ -6,15 +6,11 @@ $(document).ready(function(){
 	// On Load JS
 	$("#autocomplete2").focus();
 	populateBanks();  
+	console.log("newshit");
+    
 
-	$(".listName").on('click', function(){
-		var somehtml = '<button class = "tinytiny radius info-dark" style  = "display: none"> msg </button>
-	              			<button class = "tinytiny radius inverse" style = "display: none"> unfollow</button>
-	              			<button class = "tinytiny radius alert-dark" style = "display: none"> unfriend </button>';
 
-		console.log('name clicked');
-		 $(somehtml).appendTo(".listBtns").fadeIn('slow');
-	});
+	
 
 
 	 // AUTO COMPLETE  and Suggested Terms
@@ -127,9 +123,16 @@ $(document).ready(function(){
             });
 
 
-            $(".bankList").on('click', '.ui-icon-closethick', close);
+            $(".bankList").on('click', '.ui-icon-closethick', close
+            // 	function(){
+            
+            // 	//$(this).parent().fadeOut(150);
+            
 
-		$( "#myform" ).submit(function( event ) {
+            // }
+            );
+
+		$( "#myform" ).on("submit", function( event ) {
 			var term = $("input:first").val();
 
 			if(storeData(term, "indiv") > 0)
@@ -138,7 +141,7 @@ $(document).ready(function(){
 	    	
             console.log("added: " + term);		
 			$("#autocomplete2").val("");
-	  		msgbox("indiv term entered");
+			event.preventDefault();
 		});
 
 
@@ -154,6 +157,7 @@ $(document).ready(function(){
 		// will add term to 'AllTerms' key and create a key-dict relationship in local storage
 		// @param - the inputted package or term, eg 'New York Knicks' or '!!'
 		function storeData(term, data){
+			term = term.trim();
 			var key = 'Term'+term.toUpperCase().split(' ').join('_') + '02021994SpoilerAlert';
 			if(localStorage[key] === undefined){
 				var str = localStorage['AllTerms02021994SpoilerAlert'];
@@ -171,6 +175,7 @@ $(document).ready(function(){
 		}
 
 		function removeFromStorage(term){
+			console.log("term:" + term + ".");
 			var termString = localStorage['AllTerms02021994SpoilerAlert'];
 			console.log("before removal: " + termString);
 			
@@ -183,24 +188,28 @@ $(document).ready(function(){
 		function populateBanks(){
         // will be called on initial page loads
         // create term array
-	        var terms = localStorage['AllTerms02021994SpoilerAlert'].split('|$|');
-	        console.log("current AllTerms: " + localStorage['AllTerms02021994SpoilerAlert'].split('|$|'));
-	        for(var i = 0; i < localStorage.length-1; i++){
-	            if(terms[i]!==undefined){
-	                var myKey = 'Term'+terms[i].toUpperCase().split(' ').join('_') + '02021994SpoilerAlert';
-	                
-	                // term is in our storage, present it on site
-	                if(localStorage[myKey] !== undefined){
-	                    var myType = localStorage[myKey]; // myType = 'show' , 'team', or 'indiv'
 
-	                    // add to appropriate bank
-	                    var thehtml = '<li class = "aligned"style = "display:none"> ' + terms[i] + '<span class="inline ui-icon ui-icon-closethick" ></span> </li>';
-	                    console.log(thehtml);
-	                    console.log(myType);
-	                    $(thehtml).prependTo('#'+myType+'Bank').fadeIn('slow');
-	                }
-	            }
-	        }
+        	if(localStorage['AllTerms02021994SpoilerAlert']!==null){
+        		console.log("current AllTerms: " + localStorage['AllTerms02021994SpoilerAlert'])
+		        var terms = localStorage['AllTerms02021994SpoilerAlert'].split('|$|');
+		        console.log("current AllTerms stripped : " + localStorage['AllTerms02021994SpoilerAlert'].split('|$|'));
+		        for(var i = 0; i < localStorage.length-1; i++){
+		            if(terms[i]!==undefined){
+		                var myKey = 'Term'+terms[i].toUpperCase().split(' ').join('_') + '02021994SpoilerAlert';
+		                
+		                // term is in our storage, present it on site
+		                if(localStorage[myKey] !== undefined){
+		                    var myType = localStorage[myKey]; // myType = 'show' , 'team', or 'indiv'
+
+		                    // add to appropriate bank
+		                    var thehtml = '<li class = "aligned"style = "display:none"> ' + terms[i] + '<span class="inline ui-icon ui-icon-closethick" ></span> </li>';
+		                    console.log(thehtml);
+		                    console.log(myType);
+		                    $(thehtml).prependTo('#'+myType+'Bank').fadeIn('slow');
+		                }
+		            }
+		        }
+		    }
 	    }
 
 	    function updateBanks(term){

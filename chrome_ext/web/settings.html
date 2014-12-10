@@ -5,64 +5,116 @@
     Spoiler Alert - no more Spoilers!
 </title>
 
-
+<!-- css -->
 <link rel="stylesheet" type="text/css" href="css/almost-flat-ui-master/stylesheets/app.css">
-<link rel="stylesheet" type="text/css" href="css/site.css">
-<link rel="stylesheet" type="text/css" href="css/styles.css">
+ <link rel="stylesheet" href="css/jquery-ui-1.11.2.custom/jquery-ui.css">
+ <link rel="stylesheet" type="text/css" href="css/site.css">
+ <link rel="stylesheet" type="text/css" href="css/settings.css">
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> -->
 
-<!-- jquery and jqueryautocomplete -->
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
+<!-- jquery and jqueryui -->
+<script src="js/jquery-1.9.1.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <!--<script type="text/javascript" src="js/jquery.autocomplete.min.js"></script> -->
 
-<!-- our js function. will hold packages and prepare them for autocomplete form -->
-<script type="text/javascript" src="js/currency-autocomplete.js"></script>
+<!-- pie charts -->
+<script src="js/piechart/highcharts.js"></script>
+<script src="js/piechart/exporting.js"></script>
+
+<!-- my js files -->
+<!--<script type="text/javascript" src="js/input-autocomplete.js"></script> -->
+<script type="text/javascript" src="js/settings.js"></script>
+
 
 </head>
 <body>
-<div class = "container">    
-          <nav class="top-bar" data-topbar="">
-            <ul class="title-area">
-              <!-- Title Area -->
-              <li class="name">
-                <h1><a href="index.html">Spoiler Alert!</a></h1>
-              </li>
-              <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-              <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-            </ul>
 
-          <section class="top-bar-section">
-              <!-- Right Nav Section -->
-              <ul class="right">
 
-                <li><a href="index.html">Profile </a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="about.html">About</a></li>
-                <li> <button class = "button radial info"> Sign Up </button></li>
-                <li> <pre>  </pre> <li>
-              </ul>
-            </section></nav>
-  </div>
+<nav role="navigation" id = "topNav" class="navigation">
+    <div class="navigation-container">
+      <ul class="logo-navigation">
+        <li>
+          <a href="index.html" id = "logo" title="Spoiler Alert">SpoilerAlert</a>
+        </li>
+      </ul>
+      <ul class="main-navigation">
+          <li><a href="index.html">Profile</a></li>
+          <li><a href="#" class = "active">Settings</a></li>
+          <li><a hred = "about.html"> About</li>
+          <li> <a id = "signin" href = "#"><strong> Sign Up </strong></a> </li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+
 <div class = "row" >
+ <div class = "large-12 columns">
+ <div class = "panel central-content">
 
-<div class = "large-12 columns">
-<div class = "panel central-content">
+    <div>
+      <h5 style="padding-left: 50px">
+        Settings
+      </h5>
 
-<h3> Settings 
-<small> customization for various features </small>
-</h3>
+    </div> 
+    <div class = "row">
+    <div class = "large-1 columns" ><!-- filler column, for alignment --><pre> </pre></div>
+    <div class = "large-4 columns" >
+        <!-- Settings -->  
+        <div class = "row">
+            <div id="slider"></div>
+        </div>
+        <div class = "row">
+            <input type="checkbox" id="check"><label for="check">Toggle</label>
+        </div>
+    </div>
 
-<div class>
-  <label for="tags">Tags: </label>
-  <input id="tags">
-</div>
+    <div class = "large-7 columns" style = " ">
+        <span style = "color: grey; font-size: .9em; padding-left: 35%"> <i> Facebook preview </i> </span>
+
+        <div class = "row" style = "">
+            <div class = "row filler"style = "height: 10px"> </div>
+            <div class = "large-11 columns" style="background: #e9eaed">
+                
+               <div class = "row filler"style = "height: 8px"> </div>
+                <div class="panel panel-default" style="">
+                  <div class="panel-body" >
+
+                      <div id = "top_fb_div" class = "row" style = "">
+                        <p class = "fb_p "> <img src="fb_imgs/fb_top.png" > <p>
+                        <p class = "fb_p text" style = "color: #333">Sack... Strip... Scoop... and SCORE! Defensive Coordinator John Pagano takes us through it step by step.</p>
+                        <p class = "fb_p text" style = "color: #333">WATCH MORE: <a href = "#" > http://chrg.rs/23raw </a></p>
+                        <p> <img src="fb_imgs/fb_vid.png" style = "width:100%;" > </p>
+                      </div>
+                      <div id = "bottom_fb_div" class = "row" style = "background: #f7f7f7; border-top: 1px solid #ddd; border-radius: 2px;"> 
+                        <p style = "margin-bottom: 5px"> <img src="fb_imgs/fb_likes.png" style = "width:100%; margin-bottom: 3px" > 
+                        <img src="fb_imgs/fb_bottom.png" style = "width:100%;" >
+                        </p>
+                      </div>
+                 </div>
+                 </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    </div>
 
 
 
 
-</div><!--panel -->
-</div><!--column-12-->
-</div><!--row -->
-</div> <!-- end of container -->
+ </div>
+ </div>
+ </div>
+
+
+
+
 
 </body>
+
+</head>
 </html>
