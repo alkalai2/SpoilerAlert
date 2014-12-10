@@ -28,28 +28,46 @@ function getBlockedWords(){
 }
 
 /**
+ * Adds various statistics to Chrome Memory
+ *
+ */
+function updateStatistics(addPost, type, name){
+	//add 1 to posts blocked posts
+	chrome.extension.sendMessage({totalPosts: 'TotalBlocked02021994SpoilerAlert'}, function(response) {
+		AllTermsString = response.storage;
+	});
+}
+
+/**
  *
  */
 function unblockPost(item, div){
 	console.log("unblocking post!");
+	console.log("item: " + item + "      div: " + div);
 
-	item.style.color='#141823';
-	item.style.textShadow='initial';
+	// item.style.color='#141823';
+	// item.style.textShadow='initial';
 	// var paragraphs = item.getElementsByTagName('p');
 	// for(var i = 0; i < paragraphs.length; i++){
 	// 	paragraphs[i].style.color='#141823';
 	// 	paragraphs[i].style.textShadow='initial';
 	// }
-
-	//block shitty images and videos
-
-	//put filters on top of post while changing the opacity
 	var nodes = item.childNodes;
-  	for(var i = 0; i < nodes.length; i++){
-  		nodes[i].style.opacity=1;
-  	}
-  	item.style.background='#fff';//'#3B5998';//actual background color: #e9eaed
-  	item.style.pointerEvents='auto';
+	for(var i = 1; i < nodes.length; i++){
+		nodes[i].style.textShadow='initial';
+		nodes[i].style.color='#141823';
+		//put filters on top of post while changing the opacity
+		nodes[i].style.opacity=11;
+		nodes[i].style.pointerEvents='auto';
+	}
+
+	// //put filters on top of post while changing the opacity
+	// var nodes = item.childNodes;
+ //  	for(var i = 0; i < nodes.length; i++){
+ //  		nodes[i].style.opacity=1;
+ //  	}
+ //  	item.style.background='#fff';//'#3B5998';//actual background color: #e9eaed
+ //  	item.style.pointerEvents='auto';
 
   	//changing the div
   	div.style.zIndex=-10;
@@ -73,50 +91,79 @@ function blockFacebookItem(item, term){
 		return;
 
 	//block out all of the shitty text
-	item.style.textShadow='0 0 5px rgba(0,0,0,0.5)';
-	item.style.color='transparent';
+	for(var i = 1; i < nodes.length; i++){
+		nodes[i].style.textShadow='0 0 5px rgba(0,0,0,0.5)';
+		nodes[i].style.color='transparent';
+		//put filters on top of post while changing the opacity
+		nodes[i].style.opacity=.1;
+		nodes[i].style.pointerEvents='none';
+	}
 
-	//block shitty images and videos
-
-	//put filters on top of post while changing the opacity
-  	for(var i = 1; i < nodes.length; i++){
-  		nodes[i].style.opacity=.1;
-  	}
-
-  	item.style.pointerEvents='none';
-
-  	//make the name + pic visible
-  	//item.getElementsByClassName('clearfix')[0].style.zIndex=50;
-
+	var link  = document.createElement('link');
+    link.rel  = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'https://fonts.googleapis.com/css?family=Open+Sans';
+    link.media = 'all';
+    document.getElementsByTagName('head')[0].appendChild(link);
 
   	//my additions for the divs
+  	holderDiv.style.fontFamily='Open Sans';
   	holderDiv.style.position="absolute";
 	holderDiv.style.top="0px";
 	holderDiv.style.left="0px";
-	holderDiv.style.zIndex=9;
+	holderDiv.style.zIndex=10;
   	holderDiv.style.minWidth=(item.offsetWidth).toString() + 'px';
   	holderDiv.style.minHeight=(item.offsetHeight).toString() + 'px';
  	holderDiv.style.maxWidth=(item.offsetWidth).toString() + 'px';
 	holderDiv.style.maxHeight=(item.offsetHeight).toString() + 'px';
-	holderDiv.style.background='linear-gradient(rgba(59,89,152,.7), rgba(255,255,255,.7))';
-
+	holderDiv.style.background='linear-gradient(rgba(102,102,102,.7), rgba(255,255,255,.7))';
   	
-  	var div = createBlockingDiv(item.offsetWidth - 50, item.offsetHeight - 30, term, item);
-  	div.onclick=function(){
+  	//sizing
+  	var imageSize = item.offsetHeight/2;
+  	if(imageSize > 300)
+  		imageSize = 300;
+  	var textSize = item.offsetHeight/10;
+  	if(textSize > 25)
+  		textSize = 25;
+  	var spacing = 30 + item.offsetHeight/10;
+  	if(spacing >200)
+  		spacing = 200;
+
+  	//adding content on top of the holderDiv
+	var imgurl = chrome.extension.getURL("SpoilerAlert.png");
+	holderDiv.style.lineHeight=spacing.toString() + '%';
+	holderDiv.style.textAlign="center";
+	holderDiv.innerHTML = '<br><br><img src="' + imgurl +'" id="SpoilerAlertImage" style="width:'+imageSize.toString()+'px+;height:'+imageSize.toString()+'px;">' //alt="Mountain View" style="width:304px;height:228px">'
+		+ '<p style="font-size: '+ textSize.toString()+'px; color: #555555;">Post contained a Possible Spoiler</p>'
+		+ '<p style="font-size: '+ textSize.toString()+'px; color: #2B919B;">'+ term + '</p>';
+
+	var image = holderDiv.childNodes[2];
+	
+	//listeners
+	image.onclick=function(){
   		unblockPost(item, holderDiv);
   	};
-	holderDiv.appendChild(div);
-	div.style.pointerEvents='auto';
+  	image.onmouseover=function(){
+  		//holderDiv.style.border = "thick solid #36C0CD";
+  		image.style.boxShadow='0px 0px 10px #555555';
+  		var radius = item.offsetHeight/15;
+  		if(radius > 25)
+  			radius = 25;
+  		image.style.borderRadius=radius.toString()+'px';
+  	};
+  	image.onmouseout=function(){
+  		image.style.boxShadow = "initial";
+  	};
 }
 
 function createBlockingDiv(width, height, term){
 	var div = document.createElement("div");
 
-  	var imgurl = chrome.extension.getURL("SpoilerAlert.png");
+  	var imgurl = chrome.extension.getURL("icon.png");
 
   	div.style.background='linear-gradient(rgba(0,0,0,.5), rgba(255,255,255,.7))';
   	div.setAttribute("id", "SpoilerAlertBlockingDiv");
-  	div.innerHTML = makeLogo()
+  	div.innerHTML = '<img src="' + imgurl +'" >' //alt="Mountain View" style="width:304px;height:228px">'
   		+ '<p style="font-size: 13px;">Post contained a Possible Spoiler</p>'
   		+ '<p style="font-size: 13px; color: #5E15CF;">'+ term + '</p>';
 
@@ -203,12 +250,13 @@ function blockSpoilerPosts(posts){
  * Controller function that will delegate to other functions
  */
 function facebookBlocker(){
-	if(AllTermsString.length <= 3)
-		return;
+	// if(AllTermsString.length <= 3)
+	// 	return;
 	console.log('executing blocking');
 	var newsfeedStories = getNewsfeedStories();
 	blockSpoilerPosts(newsfeedStories);
-	//blockFacebookItem(newsfeedStories[0], "testing");
+	blockFacebookItem(newsfeedStories[0], "testing");
+	blockFacebookItem(newsfeedStories[1], "testing");
 }
 
 /**

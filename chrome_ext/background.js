@@ -11,6 +11,7 @@ chrome.runtime.onInstalled.addListener(function(details) {
 	localStorage.clear();
     localStorage['OnOff02021994SpoilerAlert'] = true;
     localStorage['AllTerms02021994SpoilerAlert'] = "|$|";
+    localStorage['TotalBlocked02021994SpoilerAlert'] = 0;
 });
 
 chrome.tabs.onUpdated.addListener(function(id, info, tab){

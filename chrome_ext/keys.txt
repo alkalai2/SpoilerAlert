@@ -1,8 +1,13 @@
 KEYS:
 
+General:
 AllTerms02021994SpoilerAlert - array separated by '|$|'
 OnOff02021994SpoilerAlert - true if it is on and operating and false otherwise
 
+Term:
 Term[insert term (all caps)]02021994SpoilerAlert - Whether 'show', 'sports' (package), or 'individual' term
 Stats[insert term (all caps)]02021994SpoilerAlert - Whenever we add a key (how many times blocked)
 Person[insert person name] - people that we might want to take off facebook
+
+Statistics:
+TotalBlocked02021994SpoilerAlert - number of posts we've blocked so far
