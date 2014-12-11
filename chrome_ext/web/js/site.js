@@ -6,11 +6,13 @@ $(document).ready(function(){
 	// On Load JS
 	$("#autocomplete2").focus();
 	populateBanks();  
-    
-
-
-	
-
+   
+	console.log("total blocks: " + parseInt(localStorage["TotalBlocked02021994SpoilerAlert"]));
+	if(parseInt(localStorage["TotalBlocked02021994SpoilerAlert"]) < 1){
+		$(".statistics").css("display", "none");
+		$(".noData").css("display", "inline");
+	}
+  
 
 	 // AUTO COMPLETE  and Suggested Terms
 
@@ -203,7 +205,7 @@ $(document).ready(function(){
 		                    var myType = localStorage[myKey]; // myType = 'show' , 'team', or 'indiv'
 
 		                    // add to appropriate bank
-		                    var thehtml = '<li class = "aligned"style = "display:none"> ' + terms[i] + /*'<span class="inline ui-icon ui-icon-closethick" ></span>*/'<span class = "closeMe" ><img src= "imgs/greyClose.png" style = " height: 10px; width: 10px;" ></img> </span></li>';
+		                    var thehtml = '<li class = "aligned"style = "display:none"> ' + terms[i] + '<span class = "closeMe" ><img src= "greyClose.png" style = " height: 10px; width: 10px;" ></img> </span></li>';
 		                    console.log(thehtml);
 		                    console.log(myType);
 		                    $(thehtml).prependTo('#'+myType+'Bank').fadeIn('slow');
@@ -223,7 +225,7 @@ $(document).ready(function(){
 	                    var myType = localStorage[myKey]; // myType = 'show' , 'team', or 'indiv'
 
 	                    // add to appropriate bank
-	                    var thehtml = '<li class = "aligned" style = "display:none"> ' + term + /*'<span class="inline ui-icon ui-icon-closethick" ></span>*/ ' <span class = "closeMe"><img src= "imgs/greyClose.png" style = " height: 10px; width: 10px;" ></img> </span></li>';
+	                    var thehtml = '<li class = "aligned" style = "display:none"> ' + term + /*'<span class="inline ui-icon ui-icon-closethick" ></span>*/ ' <span class = "closeMe"><img src= "greyClose.png" style = " height: 10px; width: 10px;" ></img> </span></li>';
 	                    console.log(thehtml);
 	                    console.log(myType);
 	                    $(thehtml).prependTo('#'+myType+'Bank').fadeIn('slow');

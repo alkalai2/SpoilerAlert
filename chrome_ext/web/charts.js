@@ -9,13 +9,13 @@ window.onload = function () {
                 ]);
         CanvasJS.addColorSet("greyShades",
                 [//colorSet Array
-                "#e9e9e9",
+                
                 "#d5d5d5",
                 "#c1c1c1",
                 "#acacac",
-                "#969696"
+                "#969696",
+                "#808080"
                 
-
                      
                 ]);
 
@@ -26,7 +26,7 @@ window.onload = function () {
             title: {
                 text: "Your Top Spoilers...",
                 fontFamily: "Open Sans",
-                fontColor: "#666",
+                fontColor: "#16494e",
                 fontSize: 20
 
             },
@@ -56,7 +56,7 @@ window.onload = function () {
                 type: "bar",
                 dataPoints: [
                     
-                    { y: parseInt(localStorage["TotalBlocked02021994SpoilerAlert"]), label: "5", indexLabel: "REAL DATA" },
+                    { y: 3, label: "5", indexLabel: "REAL DATA" },
                     { y: 7, label: "4", indexLabel: "Maps/ Search" },
                     { y: 8, label: "3", indexLabel: "Weather" },
                     { y: 10, label: "2", indexLabel: "Games" },
@@ -69,14 +69,16 @@ window.onload = function () {
         });
         
         
+        
+
         var pieChart = new CanvasJS.Chart("pieChartContainer",
             {
                 backgroundColor: "transparent",
-                colorSet: "greenShades",
+                colorSet: "greyShades",
                 title:{
                     text: "Spoiler Breakdown",
                     fontFamily: "Open Sans",
-                    fontColor: "#666",
+                    fontColor: "#16494e",
                     fontSize: 20
                 },
                 
@@ -90,9 +92,9 @@ window.onload = function () {
                     showInLegend: true,
                     toolTipContent:"{legendText} {y}%",
                     dataPoints: [
-                        {  y: 53.24, legendText:"Google", label: "Shows" },
-                        {  y: 8.16, legendText:"Yahoo!", label: "Teams" },
-                        {  y: 38.60, legendText:"Yahoo!", label: "Terms" },
+                        {  y: (parseInt(localStorage["Totalshows02021994SpoilerAlert"])) / (parseInt(localStorage["TotalBlocked02021994SpoilerAlert"])), legendText:"Shows", label: "Shows" },
+                        {  y: (parseInt(localStorage["Totalsports02021994SpoilerAlert"])) / (parseInt(localStorage["TotalBlocked02021994SpoilerAlert"])) , legendText:"Teams", label: "Teams" },
+                        {  y: (parseInt(localStorage["Totalindividual02021994SpoilerAlert"]))  / (parseInt(localStorage["TotalBlocked02021994SpoilerAlert"]))  , legendText:"Terms", label: "Terms" },
                         
                     ]
                 }
@@ -102,6 +104,7 @@ window.onload = function () {
 
 
         pieChart.render();
+
         barChart.render();
 
         $(".canvasjs-chart-credit").css("display", "none");

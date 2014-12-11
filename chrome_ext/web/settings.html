@@ -9,16 +9,20 @@
 <script src="js/jquery-1.9.1.min.js"></script>
   <script src="js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/site.js"></script>
- 
- <!-- For charts and analytics  -->
+<script type = "text/javascript" src = "js/settings.js"></script>
+<script type = "text/javascript" src = "js/jquery.minicolors.js"></script>
 
- <script type="text/javascript" src="charts.js"></script>
+ <!-- For charts and analytics  -->
+<!-- <script src="js/jquery-ui-slider-pips.js"></script> -->
+  <!-- <script type="text/javascript" src="charts.js"></script> -->
 
 
  <!-- Latest compiled and minified CSS -->
+ <!-- <link rel="stylesheet" type="text/css" href="css/jquery-ui-slider-pips.css"> -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/test.css">
 <link rel="stylesheet" type="text/css" href="css/settings.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.minicolors.css">
 
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans" />
 
@@ -33,9 +37,9 @@
   <a class="navbar-brand" style = "font-size: 37px;" href="#">SpoilerAlert</a>  
      <ul class="nav navbar-nav" style = "margin-left:20px">
 
-        <li class="current"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">About</a></li>
+        <li ><a href="test.html">Home <span class="sr-only">(current)</span></a></li>
+        <li class="current"><a href="#">Settings</a></li>
+        <li><a href="about.html">About</a></li>
     </ul>
   </div>
 </nav>
@@ -46,25 +50,111 @@
 <div class = "row"> 
   <div class = " main-panel col-md-10 col-md-offset-1" > <!-- main content panel  --> 
 
-    <div>
-      <h5 style="padding-left: 50px">
-        Settings
-      </h5>
-
-    </div> 
+     
     <div class = "row">
-    <div class = "col-md-1" ><!-- filler column, for alignment --><pre> </pre></div>
-    <div class = "col-md-5" >
+    <!-- <div class = "col-md-1" >filler column, for alignment</div> -->
+    <div class = "col-md-6" > <h3 style = "text-align: center; color: #2b919b"> Settings </h3>
+      
         <!-- Settings -->  
         <div class = "row">
-            <div id="slider"></div>
+            <div class = "col-md-12" >
+                 <h3> Appearance </h3>
+                 <div class = "row" style = "height: 8px"> <!-- filler --> </div>
+                 <div class = "row" style = "height: 8px"> <!-- filler --> </div>
+
+                <div class = "row">
+                    <div class = "col-md-11 col-md-offset-1" >
+                         
+
+                      <p> Change Post Visibility <p>
+                      <div class = "row" style = "height: 8px"> <!-- filler --> </div>
+ 
+                      <div class = "row">
+                          <div class = "cols-md-10 col-md-offset-2" >
+                            
+                            <div class="btn-group visibility  btn-group-sm" role="group" >
+                              <button type="button" class="btn btn-default">1</button>
+                              <button type="button" class="btn btn-default">2</button>
+                              <button type="button" class="btn btn-default">3</button>
+                              <button type="button" class="btn btn-default">4</button>
+                              <button type="button" class="btn btn-default">5</button>
+                              <button type="button" class="btn btn-default">6</button>
+                              <button type="button" class="btn btn-default">7</button>
+                              <button type="button" class="btn btn-default">8</button>
+                              <button type="button" class="btn btn-default">9</button>
+                              <button type="button" class="btn btn-default">10</button>
+                             
+                            </div>
+                          </div>
+                      </div>
+
+                      
+                      <br>
+                      <p> Change Post Color   
+
+                      <label id = "IL" for="inline"> </label>
+                      
+                      <br>
+                    
+                      <br>
+
+
+
+                    </div>
+
+
+                </div>
+                <h3> Notifications </h3>
+
+                <div class = "row">
+                    <div class = "col-md-11 col-md-offset-1" >
+
+                   
+                    <p>
+                    
+                        Would you like to receive email updates?
+                    </p>
+
+                    <label>  
+                        <input type="checkbox" value="">
+                            Yes
+                        </label>
+                        <label>
+                        <input type="checkbox" value="" checked>
+                            No Thanks
+                        </label>
+                    
+                    
+
+                    <p> 
+                      
+                      Would you like to participate in some User Research at SpoilerAlert? We'll give you lots of free stuff!
+                    </p>
+                        <label>
+                        <input type="checkbox" value="">
+                            Sure!
+                        </label>
+                        <label>
+                        <input type="checkbox" value="" checked>
+                            I'll pass
+                        </label>
+                    
+
+                  </div>
+                </div>
+                        
+
+            </div>
+
         </div>
-        <div class = "row">
-            <input type="checkbox" id="check"><label for="check">Toggle</label>
-        </div>
+
+
+
+        
     </div>
 
     <div class = "col-md-6" style = " ">
+        <div class = "row " style = "height: 20px"> <!-- filler --></div>
         <span style = "color: grey; font-size: .9em; padding-left: 35%"> <i> Facebook preview </i> </span>
 
         <div class = "row" style = "">
@@ -119,7 +209,15 @@
  </div>
 
 
+<div> slob on it: 
 
+
+
+      
+
+
+
+</div>
 
 
 

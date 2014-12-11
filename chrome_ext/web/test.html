@@ -31,7 +31,7 @@
      <ul class="nav navbar-nav" style = "margin-left:20px">
 
         <li class="current"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Settings</a></li>
+        <li><a href="settings.html">Settings</a></li>
         <li><a href="#">About</a></li>
     </ul>
   </div>
@@ -90,9 +90,19 @@
 			</div>
 
 
-			<div row>
+			<div class = "row" >
 				<div class = "col-md-12" >
-					<div class = row>
+					
+					<h3 style = "text-align:center; color: #2b919b"> Blocking Statistics </h3>
+					<div class = "row" style = "height: 30px"> <!-- filler --></div>
+
+					<div class = "row noData" style = "text-align: center; display: none"> 
+							
+							<h4 style = "color: #666"> <i> We haven't collected any data yet </i> </h4>
+					</div>
+
+
+					<div class = "row statistics ">
 						<div class = "col-md-6">
 							<div id="barChartContainer" style="height: 200px; width: 100%;">
 							</div>
