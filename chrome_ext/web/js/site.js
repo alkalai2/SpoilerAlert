@@ -136,7 +136,7 @@ $(document).ready(function(){
 		$( "#myform" ).on("submit", function( event ) {
 			var term = $("input:first").val();
 
-			if(storeData(term, "indivual") > 0)
+			if(storeData(term, "individual") > 0)
             		// add term to bank
             		updateBanks(ui.item.value);
 	    	
