@@ -65,10 +65,13 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
    	var amountTermBlocked = parseInt(localStorage['Stats'+request.termValue+'02021994SpoilerAlert']) + 1;
    	localStorage['Stats'+request.termValue+'02021994SpoilerAlert'] = amountTermBlocked;
 
-   	var amountTypeBlock = localStorage['Total' + type + '02021994SpoilerAlert'] + 1;
+   	var amountTypeBlock = parseInt(localStorage['Total' + type + '02021994SpoilerAlert']) + 1;
    	localStorage['Total' + type + '02021994SpoilerAlert'] = amountTypeBlock;
 
     sendResponse({resp: totalBlocked});
+  }
+  else if (request.key){
+  	var key = localStorage[request.key];
   }
   else {
     sendResponse({});
