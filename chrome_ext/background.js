@@ -11,10 +11,17 @@ chrome.runtime.onInstalled.addListener(function(details) {
 	localStorage.clear();
     localStorage['OnOff02021994SpoilerAlert'] = true;
     localStorage['AllTerms02021994SpoilerAlert'] = "|$|";
+
+    //blocking statistics initial values
     localStorage['TotalBlocked02021994SpoilerAlert'] = 0;
     localStorage['Totalshows02021994SpoilerAlert'] = 0;
     localStorage['Totalsports02021994SpoilerAlert'] = 0;
     localStorage['Totalindividual02021994SpoilerAlert'] = 0;
+
+    //blocking settings initial values
+    localStorage['SettingsContentOpacity'] = .1;
+    localStorage['SettingsFilterOpacity'] = .7;
+    localStorage['SettingsFilterColor'] = '102,102,102';
 });
 
 chrome.tabs.onUpdated.addListener(function(id, info, tab){
@@ -54,12 +61,12 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
    	var totalBlocked = parseInt(localStorage[request.totalPosts]) + 1;
    	localStorage[request.totalPosts] = totalBlocked;
 
-   	// var type = localStorage['Term'+request.termValue+'02021994SpoilerAlert'];
-   	// var amountTermBlocked = parseInt(localStorage['Stats'+request.termValue+'02021994SpoilerAlert']) + 1;
-   	// localStorage['Stats'+request.termValue+'02021994SpoilerAlert'] = amountTermBlocked;
+   	var type = localStorage['Term'+request.termValue+'02021994SpoilerAlert'];
+   	var amountTermBlocked = parseInt(localStorage['Stats'+request.termValue+'02021994SpoilerAlert']) + 1;
+   	localStorage['Stats'+request.termValue+'02021994SpoilerAlert'] = amountTermBlocked;
 
-   	// var amountTypeBlock = localStorage['Total' + type + '02021994SpoilerAlert'] + 1;
-   	// localStorage['Total' + type + '02021994SpoilerAlert'] = amountTypeBlock;
+   	var amountTypeBlock = localStorage['Total' + type + '02021994SpoilerAlert'] + 1;
+   	localStorage['Total' + type + '02021994SpoilerAlert'] = amountTypeBlock;
 
     sendResponse({resp: totalBlocked});
   }
