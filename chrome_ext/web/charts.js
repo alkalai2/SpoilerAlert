@@ -92,9 +92,9 @@ window.onload = function () {
                     showInLegend: true,
                     toolTipContent:"{legendText} {y}%",
                     dataPoints: [
-                        {  y: (parseInt(localStorage["Totalshows02021994SpoilerAlert"])) / (parseInt(localStorage["TotalBlocked02021994SpoilerAlert"])), legendText:"Shows", label: "Shows" },
-                        {  y: (parseInt(localStorage["Totalsports02021994SpoilerAlert"])) / (parseInt(localStorage["TotalBlocked02021994SpoilerAlert"])) , legendText:"Teams", label: "Teams" },
-                        {  y: (parseInt(localStorage["Totalindividual02021994SpoilerAlert"]))  / (parseInt(localStorage["TotalBlocked02021994SpoilerAlert"]))  , legendText:"Terms", label: "Terms" },
+                        {  y: (parseInt(localStorage["Totalshows02021994SpoilerAlert"])) / (parseInt(localStorage["TotalBlocked02021994SpoilerAlert"])) * 100, legendText:"Shows", label: "Shows" },
+                        {  y: (parseInt(localStorage["Totalsports02021994SpoilerAlert"])) / (parseInt(localStorage["TotalBlocked02021994SpoilerAlert"])) * 100, legendText:"Teams", label: "Teams" },
+                        {  y: (parseInt(localStorage["Totalindividual02021994SpoilerAlert"]))  / (parseInt(localStorage["TotalBlocked02021994SpoilerAlert"])) * 100 , legendText:"Terms", label: "Terms" },
                         
                     ]
                 }
