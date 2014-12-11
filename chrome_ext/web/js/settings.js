@@ -30,6 +30,29 @@ $(document).ready(function(){
     });
 
 
+    var currColor = "#666";
+    var cursquare = 11;
+
+    $( ".btn-color" ).hover(
+      function() {
+      	var col = $(this).css("background-color");
+      	console.log(col);
+
+        $("#holder").css("background", "linear-gradient( " + col + ", rgba(255,255,255,.7))");
+        
+      }, function() {
+        $("#holder").css("background", "linear-gradient( " + currColor + ", rgba(255,255,255,.7))");
+      }
+    );
+    $(".btn-info").click(function(){
+    	
+    	$(".btn-info").eq(cursquare).removeClass("selected");
+    	// $(this).removeClass("btn-default");
+    	$(this).addClass("btn-info");
+    	curr = $(this).text();
+
+    });
+
     $("#IL").minicolors();
 
     $("#IL").minicolors({

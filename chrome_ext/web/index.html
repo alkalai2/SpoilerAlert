@@ -1,267 +1,131 @@
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-<title>
-    Spoiler Alert - no more Spoilers!
-</title>
-
-<!-- css -->
-<link rel="stylesheet" type="text/css" href="css/almost-flat-ui-master/stylesheets/app.css">
- <link rel="stylesheet" href="css/jquery-ui-1.11.2.custom/jquery-ui.css">
- <link rel="stylesheet" type="text/css" href="css/site.css">
-
-<!-- jquery and jqueryui -->
+<!-- from index.html -->
 <script src="js/jquery-1.9.1.min.js"></script>
   <script src="js/jquery-ui.min.js"></script>
-  <!--<script type="text/javascript" src="js/jquery.autocomplete.min.js"></script> -->
-
-<!-- pie charts -->
-<script src="js/piechart/highcharts.js"></script>
-<script src="js/piechart/exporting.js"></script>
-
-<!-- my js files -->
-<!--<script type="text/javascript" src="js/input-autocomplete.js"></script> -->
-<script type="text/javascript" src="js/piechart/piechart.js"></script>
 <script type="text/javascript" src="js/site.js"></script>
+ 
+ <!-- For charts and analytics  -->
+ <script type="text/javascript" src="js/canvasjs.min.js"></script>
+ <script type="text/javascript" src="charts.js"></script>
 
 
-</head>
-<body>
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/test.css">
 
-
-<nav role="navigation" id = "topNav" class="navigation">
-    <div class="navigation-container">
-      <ul class="logo-navigation">
-        <li>
-          <a href="index.html" id = "logo" title="Spoiler Alert">SpoilerAlert</a>
-        </li>
-      </ul>
-      <ul class="main-navigation">
-          <li><a href="#" class="active">Profile</a></li>
-          <li><a href="settings.html">Settings</a></li>
-          <li><a href = "test.html"> Test</li>
-          <li > <a id = "signin" href = "#"><strong> Sign Up </strong></a> </li>
-      </ul>
-    </div>
-  </nav>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans" />
 
 
 
+  <title>SpoilerAlert! - Say Goodbye to Unwanted Spoilers</title>
+ </head>
 
-<div class = "row" >
- <div class = "large-12 columns">
- <div class = "panel central-content">
+  <body style="background: #f7f7f7">
 
-	
-	<div class = "row">
-		<!-- Welcome Content -->
-		<!-- making two small columns on either side to center welcome content because I dont want to figure out how to center columsn cus I'm fucking stupid -->
-		<div class = "large-1 columns"><pre>    </pre> </div>
-		<div class = "large-10 columns">
-				<h5> 
-					
-						<span  id = "welcome-subText" >Welcome to <span style = "color: #333"> <b>SpoilerAlert</b> </span>.We remove the 'spoilers' related to your favorite <span style = "color: #5E15CF">Shows</span> and <span style = "color: #3498db">Sports Teams </span> from your Facebook feeds. Just tell us what you follow - we'll do the rest. </span></span>
-					
-				</h5>
-		</div>
-		<div class = "large-1 columns"> </div>
-	</div>
 
-	<div class = "row filler"><!-- filler row --></div>
-	<div class = "large-12 columns">
+  <nav id = "SAnavbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
+  <div class="container" style = "margin-left: 80px">
+  <a class="navbar-brand" style = "font-size: 37px;" href="#">SpoilerAlert</a>	
+     <ul class="nav navbar-nav" style = "margin-left:20px">
+
+        <li class="current"><a href="index.html">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="settings.html">Settings</a></li>
+        
+    </ul>
+  </div>
+</nav>
+
+
+<div class = "row"> 
+	<div class = " main-panel col-md-10 col-md-offset-1" > <!-- main content panel  --> 
 		
-		<div class = "panel customizeInterests radius">
-			<!-- <h4 class = "subheader"> Your Interests 
-			</h4> -->
-			<div class = "large-12 columns success">
-   				<form id = "myform"><input id="autocomplete2" type="text" style = ""placeholder="Add more Shows, Teams, or terms here .."></form>
-	        </div>
+		
+		<div class = "row filler" style = "min-height: 20px"></div>
+		<div class = "row">
+			<div class = "col-md-10 col-md-offset-1">
+				<span  id = "welcome-subText" >Welcome to <span style = "color: #16494e"> <b>SpoilerAlert</b> </span>.We remove the 'spoilers' related to your favorite <span style = "color: #16494e">Shows</span> and <span style = "color: #16494e">Sports Teams </span> from your Facebook feeds. Just tell us what you follow - we'll do the rest.   </span></span>
+			</div>
+		</div> 
+		<div class = "row filler" style = "min-height: 20px"></div>
+		<div class = "row">
+			<div class = "col-md-11 " style = "margin-left: 4%">
+			<div id = "inputPanel" class="panel panel-default">
+			  <div class="panel-body">
+			  		<!-- <form id = "myform"><input id="autocomplete2" type="text" style = "box-shadow: 1px 1px 1px #bbbbbb"placeholder="Add more Shows, Teams, or terms here .."></form> -->
+			  		<form id = "myform" ><input id = "autocomplete2" type="text" class="form-control" placeholder="Add more Shows, Teams, and Terms ..."> </form>
+			  		<div class = "row filler" style = "min-height: 20px"></div>
+			  		<div class = "row">
+			  			<div class = "col-md-12 " style="margin-left: ">
+			  				<div class = "row">
+			  					<div class = "col-md-4" style="">
+			  						<div class="well packages" >
+			  							<div class = " well-title row" > Shows </div>
+			  							<ul class = "bankList package"id = "showBank">
+			  							
+			  							</ul>
+			  						</div>
+			  					</div>
+			  					<div class = "col-md-4" style="">
+			  						<div class="well packages " >
+			  							<div class = "well-title row" > Teams</div>
+			  							<ul class = " bankList package" id = "teamBank">
+			  							</ul>
+			  						</div>
+			  					</div>
+			  					<div class = "col-md-4" style=" ">
+			  						<div class="well" >
+			  							<div id = "well-title-indiv" class = "well-title row"> Individual Terms </div>
+			  							<ul class = "bankList" id = "indivualBank">
+			  							</ul>
+			  						</div>
+			  					</div>
+			  				</div>
+			  			</div>
+			  		</div>
 
-			<div class = "row">
-				<div class = "large-4 columns">
-				<form >
-	            <fieldset id = "showField">
-	              <legend >Shows</legend>
-	              <ul class = "bankList package"id = "showBank">
-	          
-	              </ul>
-	            </fieldset>
-	          	</form>
-	         	 </div>
+			  		
+			  </div>
+			</div>
 
-	         	 <div class = "large-4 columns">
-				<form class="custom">
-	            <fieldset>
-	              <legend>Teams</legend>
-	              <ul class = " bankList package" id = "teamBank">
-	              </ul>
-	            </fieldset>
-	          	</form>
-	         	 </div>
 
-	         	 <div class = "large-4 columns">
-				<form class="custom">
-	            <fieldset id = "termField">
-	              <legend>Indiv. Terms to Block</legend>
-	              <ul class = "bankList" id = "indivBank">
-	              </ul>
-	            </fieldset>
-	          	</form>
-	         	 </div>
-	         </div>
-   
-   		
-		</div>
-	</div>
-	<div class = "row"style = "">
-	<div class = "large-12 columns">
-	<div class = "row" style = "text-align: center">
-		<h4 class = "subheader" style = "display: inline-block;">
-			What have we been blocking?
-		</h4>
-	</div>
-	</div>
-
-		<div class = "large-4 columns  rowCounts" style = "margin-top: 45px">
 			<div class = "row" >
+				<div class = "col-md-12" >
+					
+					<h3 style = "text-align:center; color: #2b919b"> Blocking Statistics </h3>
+					<div class = "row" style = "height: 30px"> <!-- filler --></div>
 
-				<form class="custom">
-	            <fieldset id = "totalFieldset">
-	            <legend>Total Blocked Posts :          130</legend>
-
-				<!-- <h5 class = "subheader"> 
-				Total blocked posts : 
-				<span style = "float: right"> 76 </span>
-				</h5> -->
-
-				<ul class = "countList">
-					<li> Shows : <span class = "counts" id = "showCount"> 32</span></li>
-					<li> Teams: <span class = "counts" id = "teamCount"> 21 </span></li>
-					<li> Individual Terms : <span class = "counts" id = "indivCount">77</span></li>
-				</ul>
-
-				</fieldset>
-				</form>
+					<div class = "row noData" style = "text-align: center; display: none"> 
+							
+							<h4 style = "color: #666"> <i> We haven't collected any data yet </i> </h4>
+					</div>
 
 
+					<div class = "row statistics ">
+						<div class = "col-md-6">
+							<div id="barChartContainer" style="height: 200px; width: 100%;">
+							</div>
+						</div>
 
-			</div> 
-			<div class = "row">	
-				<form class="custom">
-	            <fieldset id = "countFieldset">
-	              <legend>Who Spoils the most for you?</legend>
-	              <ol style = "margin-left: 30px;" id = "termRanking">
-	              	<li style = ""><strong>James Dean </strong>
-	              	<!-- 	<span class = "listBtns"  style = "float: right;vertical-align: text-bottom"> -->
-	              			
-	              			<!-- <span class="label">R</span>
-	              			<span class="label">R</span>
-	              			<span class="label">R</span> -->
-	              			<!-- <button class = "tinytiny radius info-dark"> m </button>
-	              			<button class = "tinytiny radius inverse"> u</button>
-	              			<button class = "tinytiny radius alert-dark"> f </button> -->
-	              		
-	              		<!-- </span> -->
-	              	</li>
-	              	<li style = "line-height: 20px"> <strong class = "listName">Harry Ford</strong>
-	              		<!-- <span class = "listBtns"  style = "float: right; vertical-align: text-bottom"> -->
-	              		
-	              			<!-- <span class="label">R</span>
-	              			<span class="label">R</span>
-	              			<span class="label">R</span> -->
-	              			<!-- <button class = "tinytiny radius info-dark"> m </button>
-	              			<button class = "tinytiny radius inverse"> u</button>
-	              			<button class = "tinytiny radius alert-dark"> f </button> -->
-	              		
-	              		<!-- </span> -->
-	              	</li>
-	              	<li> <strong class = "listName">Elen Degeneres</strong><!-- <span class = "ui-icon"> words  --><!-- <span class="ui-icon ui-icon-comment" ></span> <span class="ui-icon ui-icon-minusthick" ></span><span class "ui-icon  ui-icon-contact"></span>  --></span>
-
-
-	              			
-	              		 
-	              		<!-- <span class = "listBtns"  style = "float: right;"> -->
-	              			<!-- <span class="label">R</span>
-	              			<span class="label">R</span>
-	              			<span class="label">R</span> -->
-	              			<!-- <button class = "tinytiny radius info-dark"> m </button>
-	              			<button class = "tinytiny radius inverse"> u</button>
-	              			<button class = "tinytiny radius alert-dark"> f </button> -->
-	              		
-	              	<!-- 	</span> -->
-	              	</li>
-	              	<li> <strong class ="listName"> Pau Gasol </strong></li>
-	              	<li> <strong class ="listName"> Jordan Farmar </strong></li>
-	              	<li> <strong class ="listName"> Nick Young </strong></li>
-	              	<li> <strong class ="listName"> Ed Davis </strong></li>
-	              	<li> <strong class ="listName"> Wes Johnsons </strong></li>
-
-	              </ol>
-	              </legend>
-	            </fieldset>
-	          	</form>
-
-	          	<!-- <ol id = "newOL"> Your top Spoilers:
-		          	<li>
-		          		Neeraj Asthana
-		          	</li>
-		          	<li>
-		          		Bradley Beal
-		          	</li>
-		          	<li>
-		          		Gareth Bale
-		          	</li>
-		          	<li>
-		          		Dane Cook
-		          	</li>
-
-<span class="label">Regular Label</span>
-	          	</ol> -->
-
+						<div class = "col-md-6" >
+							<div id="pieChartContainer" style="height: 300px; width: 100%;">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
 			</div>
 		</div>
 
-		<div class = "large-7 columns pieChartRow" style = "text-align:center">
-				
-				<div id="container" style="min-width: 400; height: 400; margin: 0 auto"></div>
-				<button class = "tinytiny radius info"  id="btnPieChartAll"> All</button>
-				<button class = "tinytiny radius highlight" id="btnPieChartShows"> Shows</button>
-				<button class = "tinytiny radius primary"  id="btnPieChartTeams"> Teams</button>
-				
-		</div>
-
 	</div>
- 
-
-
-
-
-
-	<div class = "row">
-		
-
-	</div>
-
-
-
-
-
-
-
-
- 
- </div>
-</div>
-
-
 </div>
 
 
 
 
 
-</div>
 
 </body>
 </html>

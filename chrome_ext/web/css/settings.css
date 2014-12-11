@@ -50,7 +50,9 @@ body{
 
 /*      To tweak with settings:        */
 
-
+.selected{
+	border: 1px solid black;
+}
 #facebook{
 	/*text-shadow: 0 0 0px rgba(0,0,0,0.5);*/
 	color: transparent;
@@ -66,7 +68,7 @@ body{
 #holder{
 	z-index: 10;
 	margin-left: 15px;
-	background: linear-gradient( rgba(102,102,102,.7), rgba(255,255,255,.7));
+	/*background: linear-gradient( rgba(102,102,102,.7), rgba(255,255,255,.7));*/
 	position: absolute;
 	top: 0px;
 	left: 0px;
