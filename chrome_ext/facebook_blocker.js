@@ -9,6 +9,9 @@
  */
 
 var AllTermsString = '|$|';
+var filterOpacity = '.7';
+var contentOpacity = .1;
+var filterColor = '102,102,102';
 
 /**
  * Goes into Chrome memory and retrieves all blocked words
@@ -25,6 +28,21 @@ function getBlockedWords(){
 	var splitArray = termsString.split('|$|');
 	console.log('Terms to block: ' + splitArray);
 	return splitArray;
+}
+
+function updateSettings(){
+	chrome.extension.sendMessage({storage: 'SettingsContentOpacity'}, function(response) {
+		contentOpacity = parseFloat(response.resp);
+		console.log(response.resp);
+	});
+	chrome.extension.sendMessage({storage: 'SettingsFilterOpacity'}, function(response) {
+		filterOpacity = response.resp;
+		console.log(response.resp);
+	});
+	chrome.extension.sendMessage({storage: 'SettingsFilterColor'}, function(response) {
+		filterColor = response.resp;
+		console.log(response.resp);
+	});
 }
 
 /**
@@ -44,7 +62,6 @@ function updateStatistics(term){
  */
 function unblockPost(item, div){
 	console.log("unblocking post!");
-	console.log("item: " + item + "      div: " + div);
 
 	// item.style.color='#141823';
 	// item.style.textShadow='initial';
@@ -58,7 +75,7 @@ function unblockPost(item, div){
 		nodes[i].style.textShadow='initial';
 		nodes[i].style.color='#141823';
 		//put filters on top of post while changing the opacity
-		nodes[i].style.opacity=.1;
+		nodes[i].style.opacity=1;
 		nodes[i].style.pointerEvents='auto';
 	}
 
@@ -96,7 +113,7 @@ function blockFacebookItem(item, term){
 		nodes[i].style.textShadow='0 0 5px rgba(0,0,0,0.5)';
 		nodes[i].style.color='transparent';
 		//put filters on top of post while changing the opacity
-		nodes[i].style.opacity=.1;
+		nodes[i].style.opacity=contentOpacity;
 		nodes[i].style.pointerEvents='none';
 	}
 
@@ -117,7 +134,7 @@ function blockFacebookItem(item, term){
   	holderDiv.style.minHeight=(item.offsetHeight).toString() + 'px';
  	holderDiv.style.maxWidth=(item.offsetWidth).toString() + 'px';
 	holderDiv.style.maxHeight=(item.offsetHeight).toString() + 'px';
-	holderDiv.style.background='linear-gradient(rgba(102,102,102,.7), rgba(255,255,255,.7))';
+	holderDiv.style.background='linear-gradient(rgba('+filterColor+','+filterOpacity+'), rgba(255,255,255,'+filterOpacity+'))';
   	
   	//sizing
   	var imageSize = item.offsetHeight/2;
@@ -253,13 +270,13 @@ function blockSpoilerPosts(posts){
  * Controller function that will delegate to other functions
  */
 function facebookBlocker(){
-	// if(AllTermsString.length <= 3)
-	// 	return;
+	if(!AllTermsString || AllTermsString.length <= 3)
+		return;
 	console.log('executing blocking');
 	var newsfeedStories = getNewsfeedStories();
 	blockSpoilerPosts(newsfeedStories);
-	blockFacebookItem(newsfeedStories[0], "testing");
-	blockFacebookItem(newsfeedStories[1], "testing");
+	// blockFacebookItem(newsfeedStories[0], "testing");
+	// blockFacebookItem(newsfeedStories[1], "testing");
 }
 
 /**
@@ -268,8 +285,9 @@ function facebookBlocker(){
 function initFacebookBlocker(){
 	//Gets data from local storage
 	chrome.extension.sendMessage({storage: 'AllTerms02021994SpoilerAlert'}, function(response) {
-		AllTermsString = response.storage;
+		AllTermsString = response.resp;
 	});
+	updateSettings();
 	setTimeout(facebookBlocker, 500);
 	facebookBlocker();
 }
