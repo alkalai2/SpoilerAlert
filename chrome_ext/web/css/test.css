@@ -1,0 +1,105 @@
+/*.autocomplete-suggestions { border: 1px solid #f0f0f0; background: #fff; opacity: .97; cursor: default; overflow: auto; }
+.autocomplete-suggestion { padding: 10px 5px; font-size: .875em; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #f0f0f0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399ff; }*/
+
+
+
+body{
+	font-family: 'Open Sans';
+	font-style: Bold;
+}
+#SAnavbar{
+	background: #16494e
+}
+.current{
+	color: red;
+}
+.navbar-nav >li.current > a {
+	color: #fff;
+
+}
+.navbar{
+	font-size: 16px;
+	font-color: #666;
+}
+.navbar-brand{
+	color: red;
+}
+#myform{
+	border-radius: 0px;
+	height: 38px;
+	border: 1px solid #aaa;
+}
+#autocomplete2{
+	border-radius: 0px;
+	height: 38px;
+}
+#ui-id-1{
+	background: #fff;
+	width: 49%;
+	padding-left: 10px;
+}
+#ui-id-1 > li {
+	color: #666;
+	font-size: 14px;
+}
+#ui-id-1 > li.ui-state-focus{
+	background: #f5f5f5;
+}
+.well{
+	background: #eee9e0;
+	padding-top: 0px;  border-radius: 0px;
+
+	border-top-width: 0px;
+	border-right-width: 0px;
+	padding-right: 15px;
+	padding-left: 15px;
+	border-left-width: 0px;
+	 box-shadow: 0px 0px 1px #666; 
+}
+.well-title{
+	color: #fff;
+	background: #16494e;
+	font-size: 20px;
+	padding-left: 20px;
+}
+#well-title-indiv{
+	background: #2b919b
+}
+.well > ul{
+	margin-top: 10px;
+	color: #666;
+    padding-left: 6px;
+
+}
+ul{
+	list-style: none;
+}
+.packages{
+	
+	
+}
+#welcome-subText{
+	font-size: 17px;
+	color: #666;
+}
+.main-panel{
+	background: #eee9e0; margin-top: 50px; min-height: 600px; box-shadow: 0px 0px 7px #bbb;
+}
+#inputPanel{
+	padding-left: 15px;
+	padding-right: 15px;
+	background: #36c0cd; 
+	border-radius: 0px;
+	box-shadow: 0px 0px 30px #ccc;
+
+}
+.aligned:hover .closeMe {display: inline-block;  }
+
+.closeMe { 
+	display:none; 
+	float: right;
+  	}​
+
+
