@@ -1,5 +1,9 @@
 /*css specifically for settings.html (mostly for the fb post) */
 
+body{
+	color: #666;
+	font-size: 16px;
+}
 .panel{
 	margin-bottom: 20px;
 	 background-color: #fff;
@@ -48,16 +52,16 @@
 
 
 #facebook{
-	text-shadow: 0 0 5px rgba(0,0,0,0.5);
+	/*text-shadow: 0 0 0px rgba(0,0,0,0.5);*/
 	color: transparent;
-	opacity: = .1;
+	
 	z-index: -1;
 }
 .fb_p{
-	opacity: .1;
+	/*opacity: .9;*/
 }
 .fb_img{
-	opacity: .1;
+	/*opacity: .9;*/
 }
 #holder{
 	z-index: 10;
