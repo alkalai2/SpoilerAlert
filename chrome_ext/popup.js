@@ -11,13 +11,19 @@ $(document).ready(function(){
   $("#myform").focus();
 });
 
-$("#display_total").append("<span>" + 44 + "</span>");
-
-parseInt(localStorage["TotalBlocked02021994SpoilerAlert"])
 document.addEventListener('DOMContentLoaded', function(){
+	$("#display_total").append("<span>" + parseInt(localStorage["TotalBlocked02021994SpoilerAlert"]) + "</span>");
+
 	var mybutt = document.getElementById('alogo');
   	// console.log(mybutt);
   	mybutt.addEventListener('click', function(){
+  		console.log("inside listner...");
+  		var spoilerAlertURL = chrome.extension.getURL("web/index.html");
+  		chrome.tabs.create({url: spoilerAlertURL});
+	});
+
+	var stats = document.getElementById('statistics');
+	stats.addEventListener('click', function(){
   		console.log("inside listner...");
   		var spoilerAlertURL = chrome.extension.getURL("web/index.html");
   		chrome.tabs.create({url: spoilerAlertURL});
