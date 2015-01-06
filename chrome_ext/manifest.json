@@ -9,7 +9,7 @@
     "128": "icon.png"
   },
 
-  "web_accessible_resources":["SpoilerAlert.png"],
+  "web_accessible_resources":["SpoilerAlert.png", "termFinder.js"],
 
   "browser_action": {
     "default_icon": "icon.png",

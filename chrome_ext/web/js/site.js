@@ -1,7 +1,23 @@
 /*
     File to hold Javascript for SpoilerAlert site
+
 */
 $(document).ready(function(){
+
+	/**
+	 * Spawns a worker thread to find all of the block terms
+	 * from different apis
+	 */
+	function getAllQueryTerms(term, showOrSport){
+		console.log('spawning a new worker');
+		//var url = chrome.extension.getURL('termFinder.js');
+		var url = chrome.runtime.getURL('termFinder.js');
+		console.log('url = ' + url);
+		var worker = new Worker(url);
+		worker.postMessage({'cmd':   'CalculatePi','value': 'AllTermsString'});
+	}
+	getAllQueryTerms('kobe', 'sport');
+
 	console.log("ready in site.js");
 	// On Load JS
 	$("#autocomplete2").focus();
@@ -20,7 +36,7 @@ $(document).ready(function(){
 		        {value: 'Game of Thrones', data: 'show'},
 		        {value: 'Orange is the New Black', data: 'show'},
 		        {value: 'Friends', data: 'show'},
-		        {value: 'Silicon Vallye', data: 'show'},
+		        {value: 'Silicon Valley', data: 'show'},
 		        {value: 'Arrested Developement', data: 'show'},
 		        {value: 'Seinfeld', data: 'show'},
 		        {value: 'Southpark', data: 'show'},
@@ -28,8 +44,11 @@ $(document).ready(function(){
 		        {value: 'Cow and Chicken', data: 'show'},
 		        {value: 'Gossip Girl', data: 'show'},
 		        {value: 'SpongeBob Squareparents', data: 'show'},
-		         {value: 'House of Cards', data: 'show'},
-		          {value: 'Heroes', data: 'show'}
+		        {value: 'House of Cards', data: 'show'},
+		        {value: 'Heroes', data: 'show'},
+		        {value: 'Scrubs', data: 'show'},
+		        {value: 'The Office', data: 'show'},
+		        {value: 'Family Guy', data: 'show'}
 		    ]
 		    var nhlteams = [
 		        {value: 'Atlanta Thrashers', data: 'team'},

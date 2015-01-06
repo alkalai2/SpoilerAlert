@@ -12,6 +12,8 @@ var AllTermsString = '|$|';
 var filterOpacity = '.7';
 var contentOpacity = .1;
 var filterColor = '102,102,102';
+var currentPosts = [];
+var previousCurrentPostsSize = 0;
 
 /**
  * Goes into Chrome memory and retrieves all blocked words
@@ -33,15 +35,12 @@ function getBlockedWords(){
 function updateSettings(){
 	chrome.extension.sendMessage({storage: 'SettingsContentOpacity'}, function(response) {
 		contentOpacity = parseFloat(response.resp);
-		console.log(response.resp);
 	});
 	chrome.extension.sendMessage({storage: 'SettingsFilterOpacity'}, function(response) {
 		filterOpacity = response.resp;
-		console.log(response.resp);
 	});
 	chrome.extension.sendMessage({storage: 'SettingsFilterColor'}, function(response) {
 		filterColor = response.resp;
-		console.log(response.resp);
 	});
 }
 
@@ -232,14 +231,16 @@ function shouldBlock(post){
 /**
  * @param posts - array of facebook feed posts
  */
-function blockSpoilerPosts(posts){
-	for(var i = 0; i < posts.length; i++){
+function blockSpoilerPosts(){
+	var posts = currentPosts;
+	//starts at where the last search ended
+	for(var i = previousCurrentPostsSize; i < posts.length; i++){
 		var currentPost = posts[i];
 
 		//check to make sure we have not already checked this post
-		var isChecked = currentPost.firstChild.getAttribute('id') === "SpoilerAlertHolderDiv";
-		if(isChecked)
-			return;
+		// var isChecked = currentPost.firstChild.getAttribute('id') === "SpoilerAlertHolderDiv";
+		// if(isChecked)
+		// 	return;
 		/*
 			insert newest div about blocker holder here... 
 			- make div and give it a class name
@@ -269,13 +270,16 @@ function blockSpoilerPosts(posts){
 /**
  * Controller function that will delegate to other functions
  */
-function facebookBlocker(){
+function executeBlocking(){
 	if(!AllTermsString || AllTermsString.length <= 3)
 		return;
-	console.log('executing blocking');
-	var newsfeedStories = getNewsfeedStories();
-	blockSpoilerPosts(newsfeedStories);
-	// blockFacebookItem(newsfeedStories[0], "testing");
+	facebookPosts = getNewsfeedStories();
+	if(facebookPosts.length > previousCurrentPostsSize){
+		currentPosts = facebookPosts;
+		blockSpoilerPosts();
+		previousCurrentPostsSize = currentPosts.length;
+	}
+	//blockFacebookItem(newsfeedStories[0], "testing");
 	// blockFacebookItem(newsfeedStories[1], "testing");
 }
 
@@ -288,10 +292,10 @@ function initFacebookBlocker(){
 		AllTermsString = response.resp;
 	});
 	updateSettings();
-	setTimeout(facebookBlocker, 500);
-	facebookBlocker();
+	setTimeout(executeBlocking, 500);
+	executeBlocking();
 }
 
-console.log('got inside of the facebook_blocker.js');
+console.log('Executing Spoiler Blocking on facebook.com');
 initFacebookBlocker();
-document.addEventListener("scroll", facebookBlocker);
+document.addEventListener("scroll", executeBlocking);

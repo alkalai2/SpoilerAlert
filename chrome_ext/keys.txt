@@ -8,6 +8,7 @@ Term:
 Term[insert term (all caps)]02021994SpoilerAlert - Whether 'show', 'sports' (package), or 'individual' term
 Stats[insert term (all caps)]02021994SpoilerAlert - Whenever we add a key (how many times blocked)
 Person[insert person name] - people that we might want to take off facebook
+Related[insert term (all caps)]02021994SpoilerAlert - related terms to a show or a sports team
 
 Statistics:
 TotalBlocked02021994SpoilerAlert - number of posts we've blocked so far
