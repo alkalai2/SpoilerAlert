@@ -51,7 +51,7 @@ function updateSettings(){
 function updateStatistics(term){
 	//add 1 to posts blocked posts
 	//updates specific term and the show/sport/indv. term column
-	chrome.extension.sendMessage({totalPosts: 'TotalBlocked02021994SpoilerAlert', termValue: term.toUpperCase()}, function(response) {
+	chrome.extension.sendMessage({totalPosts: 'TotalBlocked02021994SpoilerAlert', termValue: term.toUpperCase().split(' ').join('_')}, function(response) {
 		console.log('Total Blocked: ' + response.resp);
 	});
 }

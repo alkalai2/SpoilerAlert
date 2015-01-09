@@ -1,3 +1,5 @@
+DESCRIPTION: SpoilerAlert is a Google Chrome Extension that blocks potential tv show and sport spoilers from Facebook newsfeeds. Users enter shows and sports teams that they follow into a simple extension or website. Afterwards, when a reference to an entered term is found on Facebook, the app will blur the post, explain why the blocking occurred, and an option to remove the blocking.
+
 KEYS:
 
 General:
@@ -12,8 +14,8 @@ Related[insert term (all caps)]02021994SpoilerAlert - related terms to a show or
 
 Statistics:
 TotalBlocked02021994SpoilerAlert - number of posts we've blocked so far
-Totalshows02021994SpoilerAlert - number of show posts we've blocked so far
-Totalsports02021994SpoilerAlert - number of sports posts we've blocked so far
+Totalshow02021994SpoilerAlert - number of show posts we've blocked so far
+Totalteam02021994SpoilerAlert - number of sports posts we've blocked so far
 Totalindividual02021994SpoilerAlert - number of individual term posts we've blocked so far
 
 Settings:

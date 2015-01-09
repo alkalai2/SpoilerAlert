@@ -26,6 +26,7 @@ $(document).ready(function(){
     	// $(this).removeClass("btn-default");
     	$(this).addClass("btn-info");
     	curr = $(this).text();
+        localStorage['SettingsContentOpacity'] = $(".fb_p").css("opacity");
 
     });
 

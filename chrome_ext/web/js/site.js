@@ -16,7 +16,7 @@ $(document).ready(function(){
 		var worker = new Worker(url);
 		worker.postMessage({'cmd':   'CalculatePi','value': 'AllTermsString'});
 	}
-	getAllQueryTerms('kobe', 'sport');
+	//getAllQueryTerms('kobe', 'sport');
 
 	console.log("ready in site.js");
 	// On Load JS
@@ -48,7 +48,9 @@ $(document).ready(function(){
 		        {value: 'Heroes', data: 'show'},
 		        {value: 'Scrubs', data: 'show'},
 		        {value: 'The Office', data: 'show'},
-		        {value: 'Family Guy', data: 'show'}
+		        {value: 'Family Guy', data: 'show'},
+		        {value: 'How I Met Your Mother', data: 'show'},
+		        {value: 'Desperate Housewives', data: 'show'}
 		    ]
 		    var nhlteams = [
 		        {value: 'Atlanta Thrashers', data: 'team'},
@@ -180,6 +182,7 @@ $(document).ready(function(){
 		function storeData(term, data){
 			term = term.trim();
 			var key = term.toUpperCase().split(' ').join('_') + '02021994SpoilerAlert';
+			//var key = term.toUpperCase() + '02021994SpoilerAlert';
 			if(localStorage[key] === undefined){
 				var str = localStorage['AllTerms02021994SpoilerAlert'];
 	            localStorage['AllTerms02021994SpoilerAlert'] = str + term + '|$|';

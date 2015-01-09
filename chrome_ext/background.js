@@ -14,8 +14,8 @@ chrome.runtime.onInstalled.addListener(function(details) {
 
     //blocking statistics initial values
     localStorage['TotalBlocked02021994SpoilerAlert'] = 0;
-    localStorage['Totalshows02021994SpoilerAlert'] = 0;
-    localStorage['Totalsports02021994SpoilerAlert'] = 0;
+    localStorage['Totalshow02021994SpoilerAlert'] = 0;
+    localStorage['Totalteam02021994SpoilerAlert'] = 0;
     localStorage['Totalindividual02021994SpoilerAlert'] = 0;
 
     //blocking settings initial values
@@ -72,6 +72,7 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
   }
   else if (request.key){
   	var key = localStorage[request.key];
+  	sendResponse({resp: key});
   }
   else {
     sendResponse({});
